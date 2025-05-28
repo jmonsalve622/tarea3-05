@@ -1,61 +1,45 @@
 package org.example.Logic;
 
 public class Expendedor {
-    private Deposito<CocaCola> coca;
-    private Deposito<Sprite> sprite;
-    private Deposito<Fanta> fanta;
-    private Deposito<Snickers> snickers;
-    private Deposito<Super8> super8;
-    private Deposito<Moneda> monVu;
+    private Deposito<CocaCola> coca = new Deposito<CocaCola>();
+    private Deposito<Sprite> sprite = new Deposito<Sprite>();
+    private Deposito<Fanta> fanta = new Deposito<Fanta>();
+    private Deposito<Snickers> snickers = new Deposito<Snickers>();
+    private Deposito<Super8> super8 = new Deposito<Super8>();
+    private Deposito<Moneda> monVu = new Deposito<Moneda>();
+    private DepositoEspecial depEsp = new DepositoEspecial();
 
     public Expendedor(int n) {
-        coca = new Deposito<CocaCola>(); //Se crea el deposito de CocaCola
-        for (int i = 0; i < n; i++) { // Se añaden n CocaCola al deposito
+        for (int i = 0; i < n; i++) {
             coca.add(new CocaCola(i + 100));
-        }
-        sprite = new Deposito<Sprite>(); //Se crea el deposito de Sprite
-        for (int i = 0; i < n; i++) { //Se añaden n Sprite al deposito
             sprite.add(new Sprite(i + 200));
-        }
-        fanta = new Deposito<Fanta>(); //Se crea el deposito de Fanta
-        for (int i = 0; i < n; i++) { //Se añaden n Fanta al deposito
             fanta.add(new Fanta(i + 300));
-        }
-        snickers = new Deposito<Snickers>(); //Se crea el deposito de Snickers
-        for (int i = 0; i < n; i++) { //Se añaden n Snickers al deposito
             snickers.add(new Snickers(i + 400));
-        }
-        super8 = new Deposito<Super8>(); //Se crea el deposito de Super8
-        for (int i = 0; i < n; i++) { //Se añaden n Super8 al deposito
             super8.add(new Super8(i + 500));
         }
-        monVu = new Deposito<Moneda>(); //Se crea el deposito de Moneda
     }
 
-    private int calcularIter(int valorVuelto) {
-        int iter = 0;
+    private void agregarVuelto(int valorVuelto) {
         while (valorVuelto > 0) {
             if (valorVuelto - 1000 >= 0) {
                 valorVuelto -= 1000;
-                iter++;
+                monVu.add(new Moneda1000());
             }
             else if (valorVuelto - 500 >= 0) {
                 valorVuelto -= 500;
-                iter++;
+                monVu.add(new Moneda500());
             }
             else if (valorVuelto - 100 >= 0) {
                 valorVuelto -= 100;
-                iter++;
+                monVu.add(new Moneda100());
             }
             else {
                 break;
             }
         }
-        return iter;
     }
 
-
-    public Producto comprarProducto(Moneda m, Seleccion select) throws RuntimeException {
+    public void comprarProducto(Moneda m, Seleccion select) throws RuntimeException {
         if (m == null) { //Si la moneda es un null tira exception
             throw new PagoIncorrectoException();
         }
@@ -70,10 +54,9 @@ public class Expendedor {
                     monVu.add(m);
                     throw new PagoInsuficienteException();
                 }
-                else {
-                    vuelto = m.getValor() - Precios.COCAPRECIO.getPrecio();
-                }
-                return coca.get(); //Retorno del producto
+                vuelto = m.getValor() - Precios.COCAPRECIO.getPrecio();
+                agregarVuelto(vuelto);
+                depEsp.depositarProducto(coca.get());
             case SPRITESELECCION:
                 if (sprite.empty()) { //Exception si el deposito esta vacío
                     monVu.add(m);
@@ -83,10 +66,9 @@ public class Expendedor {
                     monVu.add(m);
                     throw new PagoInsuficienteException();
                 }
-                else {
-                    vuelto = m.getValor() - Precios.SPRITEPRECIO.getPrecio();
-                }
-                return sprite.get(); //Retorno del producto
+                vuelto = m.getValor() - Precios.SPRITEPRECIO.getPrecio();
+                agregarVuelto(vuelto);
+                depEsp.depositarProducto(sprite.get());
             case FANTASELECCION:
                 if (fanta.empty()) { //Exception si el deposito esta vacío
                     monVu.add(m);
@@ -96,10 +78,9 @@ public class Expendedor {
                     monVu.add(m);
                     throw new PagoInsuficienteException();
                 }
-                else {
-                    vuelto = m.getValor() - Precios.FANTAPRECIO.getPrecio();
-                }
-                return fanta.get(); //Retorno del producto
+                vuelto = m.getValor() - Precios.FANTAPRECIO.getPrecio();
+                agregarVuelto(vuelto);
+                depEsp.depositarProducto(fanta.get());
             case SNICKERSSELECCION:
                 if (snickers.empty()) { //Exception si el deposito esta vacío
                     monVu.add(m);
@@ -109,10 +90,9 @@ public class Expendedor {
                     monVu.add(m);
                     throw new PagoInsuficienteException();
                 }
-                else {
-                    vuelto = m.getValor() - Precios.SNICKERSPRECIO.getPrecio();
-                }
-                return snickers.get(); //Retorno del producto
+                vuelto = m.getValor() - Precios.SNICKERSPRECIO.getPrecio();
+                agregarVuelto(vuelto);
+                depEsp.depositarProducto(snickers.get());
             case SUPER8SELECCION:
                 if (super8.empty()) { //Exception si el deposito esta vacío
                     monVu.add(m);
@@ -122,17 +102,13 @@ public class Expendedor {
                     monVu.add(m);
                     throw new PagoInsuficienteException();
                 }
-                else {
-                    vuelto = m.getValor() - Precios.SUPER8PRECIO.getPrecio();
-                }
-                return super8.get(); //Retorno del producto
+                vuelto = m.getValor() - Precios.SUPER8PRECIO.getPrecio();
+                agregarVuelto(vuelto);
+                depEsp.depositarProducto(super8.get());
             default:
                 monVu.add(m); //Este default ocurre cuando se selecciona un producto que no existe
                 throw new SeleccionFueraDeRangoException();
         }
-
-
-
     }
 
     public Moneda getVuelto() { //Metodo que devuelve una sola moneda del deposito monVu
