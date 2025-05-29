@@ -7,6 +7,7 @@ public class Expendedor {
     private Deposito<Snickers> snickers = new Deposito<Snickers>();
     private Deposito<Super8> super8 = new Deposito<Super8>();
     private Deposito<Moneda> monVu = new Deposito<Moneda>();
+    private Deposito<Moneda> monDep = new Deposito<Moneda>();
     private DepositoEspecial depEsp = new DepositoEspecial();
 
     public Expendedor(int n) {
@@ -54,6 +55,7 @@ public class Expendedor {
                     monVu.add(m);
                     throw new PagoInsuficienteException();
                 }
+                monDep.add(m);
                 vuelto = m.getValor() - Precios.COCAPRECIO.getPrecio();
                 agregarVuelto(vuelto);
                 depEsp.depositarProducto(coca.get());
@@ -66,6 +68,7 @@ public class Expendedor {
                     monVu.add(m);
                     throw new PagoInsuficienteException();
                 }
+                monDep.add(m);
                 vuelto = m.getValor() - Precios.SPRITEPRECIO.getPrecio();
                 agregarVuelto(vuelto);
                 depEsp.depositarProducto(sprite.get());
@@ -78,6 +81,7 @@ public class Expendedor {
                     monVu.add(m);
                     throw new PagoInsuficienteException();
                 }
+                monDep.add(m);
                 vuelto = m.getValor() - Precios.FANTAPRECIO.getPrecio();
                 agregarVuelto(vuelto);
                 depEsp.depositarProducto(fanta.get());
@@ -90,6 +94,7 @@ public class Expendedor {
                     monVu.add(m);
                     throw new PagoInsuficienteException();
                 }
+                monDep.add(m);
                 vuelto = m.getValor() - Precios.SNICKERSPRECIO.getPrecio();
                 agregarVuelto(vuelto);
                 depEsp.depositarProducto(snickers.get());
@@ -102,6 +107,7 @@ public class Expendedor {
                     monVu.add(m);
                     throw new PagoInsuficienteException();
                 }
+                monDep.add(m);
                 vuelto = m.getValor() - Precios.SUPER8PRECIO.getPrecio();
                 agregarVuelto(vuelto);
                 depEsp.depositarProducto(super8.get());
