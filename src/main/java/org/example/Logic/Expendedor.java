@@ -117,6 +117,10 @@ public class Expendedor {
         }
     }
 
+    public Producto getProducto() {
+        return depEsp.getProducto();
+    }
+
     public Moneda getVuelto() { //Metodo que devuelve una sola moneda del deposito monVu
         if (!monVu.empty()) {
             return monVu.get();

@@ -5,13 +5,15 @@ public class Comprador {
     private int vuelto;
 
     public Comprador(Moneda m, Seleccion select, Expendedor e) {
-        Producto p = e.comprarProducto(m, select);
+        e.comprarProducto(m, select);
+        Producto p = e.getProducto();
         sonido = p.consumir();
         vuelto = 0;
         while (e.hayVuelto()) {
             vuelto += e.getVuelto().getValor();
         }
     }
+
     public int cuantoVuelto() {
         return vuelto;
     }
