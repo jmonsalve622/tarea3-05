@@ -1,20 +1,19 @@
 package org.example.Visual;
 import javax.swing.*;
-import java.awt.BorderLayout;
+import java.awt.*;
 
 public class Ventana extends JFrame {
+    private PanelPrincipal dp;
+
     public Ventana() {
         super();
         this.setTitle("esta Ventana");
         this.setLayout(new BorderLayout());
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setSize(400, 300);
+        this.setSize(800, 600);
         this.setVisible(true);
-    }
-}
-
-class MainVentana {
-    public static void main(String[] args) {
-        Ventana v = new Ventana();
+        dp = new PanelPrincipal();
+        this.add(dp, BorderLayout.CENTER);
+        this.add(new JButton("Primer Botón"), BorderLayout.NORTH);
     }
 }
