@@ -11,14 +11,14 @@ public class PanelPrincipal extends JPanel {
         super();
         com = new PanelComprador();
         exp = new PanelExpendedor();
-
+        this.add(com);
+        this.add(exp);
         this.setSize(800,600);
-        this.setBackground(Color.blue);
+        this.setBackground(Color.WHITE);
     }
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setColor(Color.red);
-        g.fillOval(100,100,100,100);
+        exp.paintComponent(g);
     }
 }
