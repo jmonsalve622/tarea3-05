@@ -30,6 +30,16 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         panelExp.setBounds(300, 0, 700, 600);
         this.add(panelCom);
         this.add(panelExp);
+        this.setComponentZOrder(panelCom, 0);
+        this.setComponentZOrder(panelCom, 1);
+        this.setComponentZOrder(panelCom, 1);
+        this.setComponentZOrder(panelCom, 1);
+        this.setComponentZOrder(panelCom, 1);
+        this.setComponentZOrder(panelCom, 1);
+
+
+
+
 
 
         button1 = new JButton("1");
@@ -38,6 +48,11 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         button4 = new JButton("4");
         button5 = new JButton("5");
 
+        this.add(button1);
+        this.add(button2);
+        this.add(button3);
+        this.add(button4);
+        this.add(button5);
 
         button1.setBounds(50, 510, 80, 30);
         button2.setBounds(50, 410, 80, 30);
@@ -45,28 +60,14 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         button4.setBounds(50, 210, 80, 30);
         button5.setBounds(50, 110, 80, 30);
 
-        this.add(button1);
-        this.add(button2);
-        this.add(button3);
-        this.add(button4);
-        this.add(button5);
+
 
         button1.addActionListener(this);
 
-        //pal joaco: esto lo hice para probar mas que nada y ahi puedes probar los botones
-        // aunque a mi me sale error al probar el boton 1 y aun no cacho porque, pero el resto de todo ya esta bien
-        button2.addActionListener(e -> {
-            System.out.println("Botón 2 presionado");
-        });
-        button3.addActionListener(e -> {
-            System.out.println("Botón 3 presionado");
-        });
-        button4.addActionListener(e -> {
-            System.out.println("Botón 4 presionado");
-        });
-        button5.addActionListener(e -> {
-            System.out.println("Botón 5 presionado");
-        });
+        button2.addActionListener(this);
+        button3.addActionListener(this);
+        button4.addActionListener(this);
+        button5.addActionListener(this);
 
         this.setPreferredSize(new Dimension(1000, 600));
     }
@@ -87,11 +88,11 @@ public class PanelPrincipal extends JPanel implements ActionListener {
             System.out.println(com.queCompraste() + " " + com.cuantoVuelto());
         } else if (e.getSource() == button4) {
             System.out.println("4");
-            com = new Comprador(new Moneda1000(), Seleccion.SUPER8SELECCION, exp);
+            com = new Comprador(new Moneda1000(), Seleccion.SNICKERSSELECCION, exp);
             System.out.println(com.queCompraste() + " " + com.cuantoVuelto());
         } else if (e.getSource() == button5) {
             System.out.println("5");
-            com = new Comprador(new Moneda1000(), Seleccion.SNICKERSSELECCION, exp);
+            com = new Comprador(new Moneda1000(), Seleccion.SUPER8SELECCION, exp);
             System.out.println(com.queCompraste() + " " + com.cuantoVuelto());
         }
     }

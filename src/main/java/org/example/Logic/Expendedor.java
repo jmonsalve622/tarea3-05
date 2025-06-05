@@ -55,10 +55,11 @@ public class Expendedor {
                     monVu.add(m);
                     throw new PagoInsuficienteException();
                 }
-                monDep.add(m);
                 vuelto = m.getValor() - Precios.COCAPRECIO.getPrecio();
+                monDep.add(m);
                 agregarVuelto(vuelto);
                 depEsp.depositarProducto(coca.get());
+                break;
             case SPRITESELECCION:
                 if (sprite.empty()) { //Exception si el deposito esta vacío
                     monVu.add(m);
@@ -72,6 +73,7 @@ public class Expendedor {
                 vuelto = m.getValor() - Precios.SPRITEPRECIO.getPrecio();
                 agregarVuelto(vuelto);
                 depEsp.depositarProducto(sprite.get());
+                break;
             case FANTASELECCION:
                 if (fanta.empty()) { //Exception si el deposito esta vacío
                     monVu.add(m);
@@ -85,6 +87,7 @@ public class Expendedor {
                 vuelto = m.getValor() - Precios.FANTAPRECIO.getPrecio();
                 agregarVuelto(vuelto);
                 depEsp.depositarProducto(fanta.get());
+                break;
             case SNICKERSSELECCION:
                 if (snickers.empty()) { //Exception si el deposito esta vacío
                     monVu.add(m);
@@ -98,6 +101,7 @@ public class Expendedor {
                 vuelto = m.getValor() - Precios.SNICKERSPRECIO.getPrecio();
                 agregarVuelto(vuelto);
                 depEsp.depositarProducto(snickers.get());
+                break;
             case SUPER8SELECCION:
                 if (super8.empty()) { //Exception si el deposito esta vacío
                     monVu.add(m);
@@ -111,8 +115,9 @@ public class Expendedor {
                 vuelto = m.getValor() - Precios.SUPER8PRECIO.getPrecio();
                 agregarVuelto(vuelto);
                 depEsp.depositarProducto(super8.get());
+                break;
             default:
-                monVu.add(m); //Este default ocurre cuando se selecciona un producto que no existe
+                monVu.add(m);
                 throw new SeleccionFueraDeRangoException();
         }
     }
