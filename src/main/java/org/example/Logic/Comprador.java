@@ -1,4 +1,8 @@
 package org.example.Logic;
+import org.example.Visual.PanelPrincipal;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Comprador {
     private String sonido;
