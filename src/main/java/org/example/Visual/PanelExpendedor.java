@@ -15,13 +15,18 @@ public class PanelExpendedor extends JPanel {
 
      public PanelExpendedor() {
           super();
-          this.setBackground(Color.GRAY);
+          this.setPreferredSize(new Dimension(300,300));
+          this.setBackground(Color.red);
+          this.addMouseListener(new MouseAdapter() {
+               @Override
+               public void mouseReleased(MouseEvent e) {
+                    repaint();
+               }
+          });
      }
 
      @Override
-     public void paintComponent(Graphics g) {
+     protected void paintComponent(Graphics g) {
           super.paintComponent(g);
-          g.setColor(Color.RED);
-          g.fillRect(175,70,350,510);
      }
 }
