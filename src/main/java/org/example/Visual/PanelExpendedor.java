@@ -17,6 +17,9 @@ public class PanelExpendedor extends JPanel {
      public PanelExpendedor() {
           super();
           this.setBackground(Color.GRAY);
+
+
+
      }
 
      @Override
@@ -25,4 +28,6 @@ public class PanelExpendedor extends JPanel {
           g.setColor(Color.RED);
           g.fillRect(175,70,350,510);
      }
+
+
 }
