@@ -64,28 +64,10 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 
         button1.addActionListener(this);
 
-<<<<<<< HEAD
         button2.addActionListener(this);
         button3.addActionListener(this);
         button4.addActionListener(this);
         button5.addActionListener(this);
-=======
-        //pal joaco: esto lo hice para probar mas que nada y ahi puedes probar los botones
-        // aunque a mi me sale error al probar el boton 1 y aun no cacho porque, pero el resto de todo ya esta bien.
-        //Tambien al ejecutar el codigo, por alguna razon los botones estan invisibles hasta que pases el mouse por encima.
-        button2.addActionListener(e -> {
-            System.out.println("Botón 2 presionado");
-        });
-        button3.addActionListener(e -> {
-            System.out.println("Botón 3 presionado");
-        });
-        button4.addActionListener(e -> {
-            System.out.println("Botón 4 presionado");
-        });
-        button5.addActionListener(e -> {
-            System.out.println("Botón 5 presionado");
-        });
->>>>>>> cc8d17dd285718fbe1f71b35ec34a7847fa8c10f
 
         this.setPreferredSize(new Dimension(1000, 600));
     }
