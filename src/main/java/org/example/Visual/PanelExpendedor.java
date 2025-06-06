@@ -29,16 +29,16 @@ public class PanelExpendedor extends JPanel {
 
           panelInterno.setLayout(null);
           panelInterno.setBackground(Color.cyan);
-          panelInterno.setBounds(200, 100, 300, 100);
+          panelInterno.setBounds(200, 100, 300, 50);
 
           // Crear y agregar el PanelDeposito (que dibuja la imagen)
           spriteDep = new PanelDeposito();
-          spriteDep.setBounds(50, 10, 200, 200); // Posición y tamaño dentro del panel interno
+          spriteDep.setBounds(0, 0, 1000, 200); // Posición y tamaño dentro del panel interno
           panelInterno.add(spriteDep); // Agregar al panel interno
 
           this.add(panelInterno); // Agregar el panel interno al principal
 
-          this.setPreferredSize(new Dimension(1000, 600));
+          this.setPreferredSize(new Dimension(1200, 600));
 
      }
 

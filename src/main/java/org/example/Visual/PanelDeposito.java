@@ -12,7 +12,7 @@ public class PanelDeposito extends JPanel {
         ImageIcon iconoOriginal = new ImageIcon("sprite.png");
         imagenEscalada = iconoOriginal.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
 
-        this.setPreferredSize(new Dimension(1000, 600));
+        this.setPreferredSize(new Dimension(1200, 600));
 
     }
 

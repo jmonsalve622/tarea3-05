@@ -13,7 +13,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
     private Expendedor exp;
     private Comprador com;
 
-
+    private PanelBotones panelBot;
     private JButton button1;
     private JButton button2;
     private JButton button3;
@@ -31,46 +31,36 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         panelExp.setBounds(300, 0, 700, 600);
         this.add(panelCom);
         this.add(panelExp);
-        this.setComponentZOrder(panelCom, 0);
-        this.setComponentZOrder(panelCom, 1);
-        this.setComponentZOrder(panelCom, 1);
-        this.setComponentZOrder(panelCom, 1);
-        this.setComponentZOrder(panelCom, 1);
-        this.setComponentZOrder(panelCom, 1);
 
+        panelBot = new PanelBotones();
+        panelBot.setBounds(1000, 0, 700, 600);
+        this.add(panelBot);
+        button1 = new JButton("CocaCola");
+        button2 = new JButton("Sprite");
+        button3 = new JButton("Fanta");
+        button4 = new JButton("Snickers");
+        button5 = new JButton("Super8");
 
+        panelBot.add(button1);
+        panelBot.add(button2);
+        panelBot.add(button3);
+        panelBot.add(button4);
+        panelBot.add(button5);
 
-
-
-
-        button1 = new JButton("1");
-        button2 = new JButton("2");
-        button3 = new JButton("3");
-        button4 = new JButton("4");
-        button5 = new JButton("5");
-
-        this.add(button1);
-        this.add(button2);
-        this.add(button3);
-        this.add(button4);
-        this.add(button5);
-
-        button1.setBounds(50, 510, 80, 30);
-        button2.setBounds(50, 410, 80, 30);
-        button3.setBounds(50, 310, 80, 30);
-        button4.setBounds(50, 210, 80, 30);
-        button5.setBounds(50, 110, 80, 30);
-
+        button1.setBounds(50, 50, 80, 30);
+        button2.setBounds(50, 105, 80, 30);
+        button3.setBounds(50, 160, 80, 30);
+        button4.setBounds(50, 215, 80, 30);
+        button5.setBounds(50, 270, 80, 30);
 
 
         button1.addActionListener(this);
-
         button2.addActionListener(this);
         button3.addActionListener(this);
         button4.addActionListener(this);
         button5.addActionListener(this);
 
-        this.setPreferredSize(new Dimension(1000, 600));
+        this.setPreferredSize(new Dimension(1200, 600));
     }
 
 
