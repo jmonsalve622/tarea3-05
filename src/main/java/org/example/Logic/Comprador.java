@@ -9,12 +9,19 @@ public class Comprador {
     private int vuelto;
 
     public Comprador(Moneda m, Seleccion select, Expendedor e) {
-        e.comprarProducto(m, select);
-        Producto p = e.getProducto();
-        sonido = p.consumir();
-        vuelto = 0;
-        while (e.hayVuelto()) {
-            vuelto += e.getVuelto().getValor();
+        try {
+            e.comprarProducto(m, select);
+            Producto p = e.getProducto();
+            sonido = p.consumir();
+        }
+        catch (RuntimeException rte) {
+            sonido = null;
+        }
+        finally {
+            vuelto = 0;
+            while (e.hayVuelto()) {
+                vuelto += e.getVuelto().getValor();
+            }
         }
     }
 
