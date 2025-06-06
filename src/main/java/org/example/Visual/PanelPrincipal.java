@@ -19,6 +19,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
     private JButton button3;
     private JButton button4;
     private JButton button5;
+    private JButton fillButton;
 
     public PanelPrincipal() {
         super();
@@ -40,25 +41,28 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         button3 = new JButton("Fanta");
         button4 = new JButton("Snickers");
         button5 = new JButton("Super8");
+        fillButton = new JButton("Rellenar Expendedor");
 
         panelBot.add(button1);
         panelBot.add(button2);
         panelBot.add(button3);
         panelBot.add(button4);
         panelBot.add(button5);
+        panelExp.add(fillButton);
 
-        button1.setBounds(50, 50, 80, 30);
-        button2.setBounds(50, 105, 80, 30);
-        button3.setBounds(50, 160, 80, 30);
-        button4.setBounds(50, 215, 80, 30);
-        button5.setBounds(50, 270, 80, 30);
-
+        button1.setBounds(50, 50, 110, 30);
+        button2.setBounds(50, 105, 110, 30);
+        button3.setBounds(50, 160, 110, 30);
+        button4.setBounds(50, 215, 110, 30);
+        button5.setBounds(50, 270, 110, 30);
+        fillButton.setBounds(0, 0, 160, 40);
 
         button1.addActionListener(this);
         button2.addActionListener(this);
         button3.addActionListener(this);
         button4.addActionListener(this);
         button5.addActionListener(this);
+        fillButton.addActionListener(this);
 
         this.setPreferredSize(new Dimension(1200, 600));
     }
@@ -85,6 +89,8 @@ public class PanelPrincipal extends JPanel implements ActionListener {
             System.out.println("5");
             com = new Comprador(new Moneda1000(), Seleccion.SUPER8SELECCION, exp);
             System.out.println(com.queCompraste() + " " + com.cuantoVuelto());
+        } else if (e.getSource() == fillButton) {
+            exp = new Expendedor(5);
         }
     }
 }
