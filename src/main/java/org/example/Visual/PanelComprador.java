@@ -25,6 +25,14 @@ public class PanelComprador extends JPanel {
     private JPanel super8Panel;
 
     public PanelComprador() {
+        m1000Stack.add(new Moneda1000());
+        m1000Stack.add(new Moneda1000());
+        m500Stack.add(new Moneda500());
+        m500Stack.add(new Moneda500());
+        for (int i = 0; i < 5; i++) {
+            m100Stack.add(new Moneda100());
+        }
+        
         setPreferredSize(new Dimension(1200, 100));
         setBackground(Color.BLUE);
 
