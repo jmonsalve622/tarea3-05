@@ -3,16 +3,26 @@ package org.example.Visual;
 import javax.swing.*;
 import java.awt.*;
 
-public class PanelDeposito extends JPanel {
 
-    public PanelDeposito(){
-        ImageIcon imageOri = new ImageIcon("Fanta.png");
-        Image imagenG = imageOri.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
-        ImageIcon iconoG = new ImageIcon(imagenG);
-        JLabel label = new JLabel();
-        label.setIcon(iconoG);
-        label.setIcon(imageOri);
-        label.setBounds(0,0,75,75);
+public class PanelDeposito extends JPanel {
+    private Image imagenEscalada;
+
+    public PanelDeposito() {
+
+        ImageIcon iconoOriginal = new ImageIcon("sprite.png");
+        imagenEscalada = iconoOriginal.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+
+        this.setPreferredSize(new Dimension(1000, 600));
+
     }
 
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(imagenEscalada, 0, 0, this);
+    }
 }
+
+
+
+

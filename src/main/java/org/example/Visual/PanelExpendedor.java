@@ -12,13 +12,33 @@ public class PanelExpendedor extends JPanel {
      private PanelDeposito fantaDep;
      private PanelDeposito super8Dep;
      private PanelDeposito snikersDep;
-     private Expendedor exp = new Expendedor(5);
+     private PanelDeposito dep;
+
 
      public PanelExpendedor() {
           super();
+          this.setLayout(null);
           this.setBackground(Color.GRAY);
 
 
+          JPanel panelInterno = new JPanel();
+
+          this.add(panelInterno);
+
+
+
+          panelInterno.setLayout(null);
+          panelInterno.setBackground(Color.cyan);
+          panelInterno.setBounds(200, 100, 300, 100);
+
+          // Crear y agregar el PanelDeposito (que dibuja la imagen)
+          spriteDep = new PanelDeposito();
+          spriteDep.setBounds(50, 10, 200, 200); // Posición y tamaño dentro del panel interno
+          panelInterno.add(spriteDep); // Agregar al panel interno
+
+          this.add(panelInterno); // Agregar el panel interno al principal
+
+          this.setPreferredSize(new Dimension(1000, 600));
 
      }
 

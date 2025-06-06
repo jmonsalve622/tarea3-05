@@ -13,6 +13,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
     private Expendedor exp;
     private Comprador com;
 
+
     private JButton button1;
     private JButton button2;
     private JButton button3;
