@@ -25,7 +25,6 @@ public class PanelComprador extends JPanel {
     private JPanel super8Panel;
 
     public PanelComprador() {
-        super(new FlowLayout());
         setPreferredSize(new Dimension(1200, 100));
         setBackground(Color.BLUE);
 
@@ -38,6 +37,23 @@ public class PanelComprador extends JPanel {
         snickersPanel = new JPanel();
         super8Panel = new JPanel();
 
+        m100Panel.setBounds(0, 0, 40, 40);
+        //m500Panel.setBounds(90, 20, 50 ,50);
+        //m1000Panel.setBounds(20, 90, 50 ,50);
+        //cocaPanel.setBounds(90, 90, 50, 50);
+        //spritePanel.setBounds(20, 160, 50 ,50);
+        //fantaPanel.setBounds(90, 160, 50 ,50);
+        //snickersPanel.setBounds();
+        //super8Panel.setBounds();
+
+        this.add(m100Panel);
+        this.add(m500Panel);
+        this.add(m1000Panel);
+        this.add(cocaPanel);
+        this.add(spritePanel);
+        this.add(fantaPanel);
+        this.add(snickersPanel);
+        this.add(super8Panel);
     }
 
     public List<Moneda100> getM100Stack() {
