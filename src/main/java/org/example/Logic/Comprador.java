@@ -5,16 +5,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Comprador {
+    private Producto productoComprado;
     private String sonido;
     private int vuelto;
 
     public Comprador(Moneda m, Seleccion select, Expendedor e) {
         try {
             e.comprarProducto(m, select);
-            Producto p = e.getProducto();
-            sonido = p.consumir();
+            productoComprado = e.getProducto();
+            sonido = productoComprado.consumir();
         }
         catch (RuntimeException rte) {
+            productoComprado = null;
             sonido = null;
         }
         finally {
@@ -31,5 +33,9 @@ public class Comprador {
 
     public String queCompraste() {
         return sonido;
+    }
+
+    public Producto getProductoComprado() {
+        return productoComprado;
     }
 }
