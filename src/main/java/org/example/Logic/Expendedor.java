@@ -44,6 +44,11 @@ public class Expendedor {
         if (m == null) { //Si la moneda es un null tira exception
             throw new PagoIncorrectoException();
         }
+        if (select == null) {
+            monVu.add(m);
+            throw new SeleccionFueraDeRangoException();
+        }
+
         int vuelto;
         switch (select) {
             case COCASELECCION:

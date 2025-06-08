@@ -13,13 +13,6 @@ public class PanelBotones extends JPanel implements ActionListener {
         setBackground(Color.GREEN);
         setLayout(null);
 
-        button6 = new JButton("6");
-        button6.setBounds(50, 500, 100, 50);
-        button6.addActionListener(this);
-
-        this.add(button6);
-
-
     }
 
     public void actionPerformed(ActionEvent e) {
