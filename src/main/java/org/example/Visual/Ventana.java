@@ -18,7 +18,7 @@ public class Ventana extends JFrame {
         this.setContentPane(de);
         this.add(dp);
         this.pack();
-        this.setResizable(true);
+        this.setResizable(false);
 
         this.setVisible(true);
 

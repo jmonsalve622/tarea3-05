@@ -43,6 +43,10 @@ public class PanelExpendedor extends JPanel {
 
      }
 
+     public PanelDeposito getSpriteDep() {
+          return spriteDep;
+     }
+
      @Override
      public void paintComponent(Graphics g) {
           super.paintComponent(g);
