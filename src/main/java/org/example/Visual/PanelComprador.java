@@ -35,6 +35,7 @@ public class PanelComprador extends JPanel {
         
         setPreferredSize(new Dimension(1200, 100));
         setBackground(Color.BLUE);
+        this.setLayout(null);
 
         m100Panel = new JPanel();
         m500Panel = new JPanel();
@@ -45,14 +46,14 @@ public class PanelComprador extends JPanel {
         snickersPanel = new JPanel();
         super8Panel = new JPanel();
 
-        m100Panel.setBounds(0, 0, 40, 40);
-        //m500Panel.setBounds(90, 20, 50 ,50);
-        //m1000Panel.setBounds(20, 90, 50 ,50);
-        //cocaPanel.setBounds(90, 90, 50, 50);
-        //spritePanel.setBounds(20, 160, 50 ,50);
-        //fantaPanel.setBounds(90, 160, 50 ,50);
-        //snickersPanel.setBounds();
-        //super8Panel.setBounds();
+        m100Panel.setBounds(20, 20, 100, 100);
+        m500Panel.setBounds(170, 20, 100 ,100);
+        m1000Panel.setBounds(20, 170, 100 ,100);
+        cocaPanel.setBounds(170, 170, 100, 100);
+        spritePanel.setBounds(20, 320, 100 ,100);
+        fantaPanel.setBounds(170, 320, 100 ,100);
+        snickersPanel.setBounds(20, 470, 100, 100);
+        super8Panel.setBounds(170, 470, 100, 100);
 
         this.add(m100Panel);
         this.add(m500Panel);
@@ -100,4 +101,5 @@ public class PanelComprador extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
     }
+
 }
