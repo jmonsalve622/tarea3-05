@@ -93,4 +93,9 @@ public class PanelPrincipal extends JPanel implements ActionListener {
             exp = new Expendedor(5);
         }
     }
+
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+    }
 }

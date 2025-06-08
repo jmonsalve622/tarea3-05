@@ -95,4 +95,9 @@ public class PanelComprador extends JPanel {
     public List<Super8> getSuper8Stack() {
         return super8Stack;
     }
+
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+    }
 }
