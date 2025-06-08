@@ -20,6 +20,10 @@ public class PanelPrincipal extends JPanel implements ActionListener {
     private JButton button4;
     private JButton button5;
     private JButton fillButton;
+    private ButtonGroup bGroup;
+    private JRadioButton m100Button;
+    private JRadioButton m500Button;
+    private JRadioButton m1000Button;
 
     public PanelPrincipal() {
         super();
@@ -42,12 +46,23 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         button4 = new JButton("Snickers");
         button5 = new JButton("Super8");
         fillButton = new JButton("Rellenar Expendedor");
+        bGroup = new ButtonGroup();
+        m100Button = new JRadioButton("$100");
+        m500Button = new JRadioButton("$500");
+        m1000Button = new JRadioButton("$1000");
 
+
+        bGroup.add(m100Button);
+        bGroup.add(m500Button);
+        bGroup.add(m1000Button);
         panelBot.add(button1);
         panelBot.add(button2);
         panelBot.add(button3);
         panelBot.add(button4);
         panelBot.add(button5);
+        panelBot.add(m100Button);
+        panelBot.add(m500Button);
+        panelBot.add(m1000Button);
         panelExp.add(fillButton);
 
         button1.setBounds(50, 50, 110, 30);
@@ -56,6 +71,9 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         button4.setBounds(50, 215, 110, 30);
         button5.setBounds(50, 270, 110, 30);
         fillButton.setBounds(0, 0, 160, 40);
+        m100Button.setBounds(40, 300, 60, 30);
+        m500Button.setBounds(120, 300, 60, 30);
+        m1000Button.setBounds(200, 300, 60, 30);
 
         button1.addActionListener(this);
         button2.addActionListener(this);
@@ -63,6 +81,9 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         button4.addActionListener(this);
         button5.addActionListener(this);
         fillButton.addActionListener(this);
+        m100Button.addActionListener(this);
+        m500Button.addActionListener(this);
+        m1000Button.addActionListener(this);
 
         this.setPreferredSize(new Dimension(1200, 600));
     }
