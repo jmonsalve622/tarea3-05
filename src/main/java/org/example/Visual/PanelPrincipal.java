@@ -31,11 +31,14 @@ public class PanelPrincipal extends JPanel implements ActionListener {
     private JButton comprarButton;
     private JButton cancelarButton;
 
+    private PanelDeposito sprite;
+
+
     public PanelPrincipal() {
         super();
         this.setLayout(null);
 
-        exp = new Expendedor(5);
+        exp = new Expendedor(CantidadInicial.INICALNUMBER.getInicialNum());
         mon = null;
         select = null;
 
@@ -109,6 +112,8 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         comprarButton.addActionListener(this);
         cancelarButton.addActionListener(this);
 
+        sprite = panelExp.getSpriteDep();
+
         this.setPreferredSize(new Dimension(1200, 600));
     }
 
@@ -131,8 +136,14 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         } else if (e.getSource() == m1000Button) {
             mon = new Moneda1000();
         } else if (e.getSource() == fillButton) {
-            exp = new Expendedor(5);
+            exp = new Expendedor(6);
+            sprite.RellenarSprite();
+            sprite.RecolocarImagen(true);
         } else if (e.getSource() == comprarButton) {
+            if(select == Seleccion.SPRITESELECCION && mon instanceof Moneda1000){
+                sprite.ComprarSprite();
+                sprite.setMostrarImagen(false);
+            }
             com = new Comprador(mon, select, exp);
             System.out.println(com.queCompraste() + " " + com.cuantoVuelto());
         } else if (e.getSource() == cancelarButton) {
