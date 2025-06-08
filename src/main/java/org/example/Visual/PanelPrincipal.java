@@ -138,6 +138,8 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         } else if (e.getSource() == cancelarButton) {
             proGroup.clearSelection();
             monGroup.clearSelection();
+            mon = null;
+            select = null;
         }
     }
 
