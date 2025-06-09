@@ -36,6 +36,8 @@ public class PanelPrincipal extends JPanel implements ActionListener {
     private PanelDeposito sprite;
     private PanelCocacola cocacola;
     private PanelFanta fanta;
+    private PanelSnickers snickers;
+    private PanelSuper8 super8;
 
     public PanelPrincipal() {
         super();
@@ -100,7 +102,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         button3.setBounds(50, 160, 110, 30);
         button4.setBounds(50, 215, 110, 30);
         button5.setBounds(50, 270, 110, 30);
-        fillButton.setBounds(0, 0, 160, 40);
+        fillButton.setBounds(10, 10, 160, 40);
         m100Button.setBounds(35, 320, 60, 30);
         m500Button.setBounds(115, 320, 60, 30);
         m1000Button.setBounds(75, 360, 60, 30);
@@ -126,6 +128,8 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         sprite = panelExp.getSpriteDep();
         cocacola = panelExp.getCocaDep();
         fanta = panelExp.getFantaDep();
+        snickers = panelExp.getSnikersDep();
+        super8 = panelExp.getSuper8Dep();
 
         this.setPreferredSize(new Dimension(1200, 600));
     }
@@ -156,6 +160,10 @@ public class PanelPrincipal extends JPanel implements ActionListener {
             cocacola.RecolocarImagen(true);
             fanta.RellenarFanta();
             fanta.RecolocarImagen(true);
+            snickers.RellenarSnickers();
+            snickers.RecolocarImagen(true);
+            super8.RellenarSuper8();
+            super8.RecolocarImagen(true);
         } else if (e.getSource() == comprarButton) {
             if (select == Seleccion.SPRITESELECCION && mon instanceof Moneda1000){
                 sprite.ComprarSprite();
@@ -166,6 +174,12 @@ public class PanelPrincipal extends JPanel implements ActionListener {
             } else if (select == Seleccion.FANTASELECCION && mon instanceof Moneda1000){
                 fanta.ComprarFanta();
                 fanta.setMostrarImagen(false);
+            } else if (select == Seleccion.SNICKERSSELECCION && (mon instanceof Moneda500 || mon instanceof Moneda1000)){
+                snickers.ComprarSnickers();
+                snickers.setMostrarImagen(false);
+            } else if (select == Seleccion.SUPER8SELECCION && (mon instanceof Moneda500 || mon instanceof Moneda1000)){
+                super8.ComprarSuper8();
+                super8.setMostrarImagen(false);
             }
             com = new Comprador(mon, select, exp);
             System.out.println("Nombre Producto: " + com.queCompraste());
