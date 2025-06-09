@@ -24,11 +24,11 @@ public class PanelSnickers extends JPanel {
 
         ImageIcon iconoOriginal = new ImageIcon("snickers.png");
         imagen1 = iconoOriginal.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-        imagen2 = iconoOriginal.getImage().getScaledInstance(30, 50, Image.SCALE_SMOOTH);
-        imagen3 = iconoOriginal.getImage().getScaledInstance(30, 50, Image.SCALE_SMOOTH);
-        imagen4 = iconoOriginal.getImage().getScaledInstance(30, 50, Image.SCALE_SMOOTH);
-        imagen5 = iconoOriginal.getImage().getScaledInstance(30, 50, Image.SCALE_SMOOTH);
-        imagen6 = iconoOriginal.getImage().getScaledInstance(30, 50, Image.SCALE_SMOOTH);
+        imagen2 = iconoOriginal.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+        imagen3 = iconoOriginal.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+        imagen4 = iconoOriginal.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+        imagen5 = iconoOriginal.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+        imagen6 = iconoOriginal.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         setBackground(Color.cyan);
         setOpaque(false);
         this.setBounds(0, 0, 1000, 200);
