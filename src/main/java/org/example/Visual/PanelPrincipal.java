@@ -30,6 +30,8 @@ public class PanelPrincipal extends JPanel implements ActionListener {
     private JButton fillButton;
     private JButton comprarButton;
     private JButton cancelarButton;
+    private JButton productoButton;
+    private JButton vueltoButton;
 
     private PanelDeposito sprite;
     private PanelCocacola cocacola;
@@ -67,6 +69,8 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         m1000Button = new JRadioButton("$1000");
         comprarButton = new JButton("Comprar");
         cancelarButton = new JButton("Cancelar");
+        productoButton = new JButton("Recoger Producto");
+        vueltoButton = new JButton("Recoger Vuelto");
 
         proGroup.add(button1);
         proGroup.add(button2);
@@ -88,6 +92,8 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         panelBot.add(comprarButton);
         panelBot.add(cancelarButton);
         panelExp.add(fillButton);
+        panelExp.add(productoButton);
+        panelExp.add(vueltoButton);
 
         button1.setBounds(50, 105, 110, 30);
         button2.setBounds(50, 50, 110, 30);
@@ -100,6 +106,8 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         m1000Button.setBounds(75, 360, 60, 30);
         comprarButton.setBounds(60, 430, 90, 40);
         cancelarButton.setBounds(60, 500, 90, 40);
+        productoButton.setBounds(20, 450, 140, 40);
+        vueltoButton.setBounds(20, 520, 140, 40);
 
         button1.addActionListener(this);
         button2.addActionListener(this);
@@ -112,6 +120,8 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         m1000Button.addActionListener(this);
         comprarButton.addActionListener(this);
         cancelarButton.addActionListener(this);
+        productoButton.addActionListener(this);
+        vueltoButton.addActionListener(this);
 
         sprite = panelExp.getSpriteDep();
         cocacola = panelExp.getCocaDep();
