@@ -208,8 +208,10 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                 }
                 if (com.getProductoComprado() != null) {
                     System.out.println("Serie Producto: " + com.getProductoComprado().getSerie());
+                    System.out.println("");
                 } else {
                     System.out.println("No se obtuvo producto");
+                    System.out.println("");
                 }
             }
             if (select == Seleccion.SPRITESELECCION && mon instanceof Moneda1000){
@@ -227,6 +229,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     block = 1;
                 } else if (block == 1) {
                     System.out.println("Saque el producto de la Expendedora y su vuelto");
+                    System.out.println("");
                 }
             } else if (select == Seleccion.COCASELECCION && mon instanceof Moneda1000){
                 if(block == 0){
@@ -243,6 +246,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     block = 1;
                 } else if (block == 1) {
                     System.out.println("Saque el producto de la Expendedora y su vuelto");
+                    System.out.println("");
                 }
             } else if (select == Seleccion.FANTASELECCION && mon instanceof Moneda1000){
                 if(block == 0){
@@ -259,8 +263,9 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     block = 1;
                 } else if (block == 1) {
                     System.out.println("Saque el producto de la Expendedora y su vuelto");
+                    System.out.println("");
                 }
-            } else if (select == Seleccion.SNICKERSSELECCION && (mon instanceof Moneda500 || mon instanceof Moneda1000)){
+            } else if (select == Seleccion.SNICKERSSELECCION && mon instanceof Moneda1000){
                 if(block == 0){
                     dep.setNum(4);
                     snickers.ComprarSnickers();
@@ -275,8 +280,9 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     block = 1;
                 } else if (block == 1) {
                     System.out.println("Saque el producto de la Expendedora y su vuelto");
+                    System.out.println("");
                 }
-            } else if (select == Seleccion.SUPER8SELECCION && (mon instanceof Moneda500 || mon instanceof Moneda1000)){
+            } else if (select == Seleccion.SUPER8SELECCION && mon instanceof Moneda1000){
                 if(block == 0){
                     dep.setNum(5);
                     super8.ComprarSuper8();
@@ -291,6 +297,41 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     block = 1;
                 } else if (block == 1) {
                     System.out.println("Saque el producto de la Expendedora y su vuelto");
+                    System.out.println("");
+                }
+            } else if(select == Seleccion.SNICKERSSELECCION && mon instanceof Moneda500) {
+                if(block == 0) {
+                    dep.setNum(4);
+                    snickers.ComprarSnickers();
+                    snickers.setMostrarImagen(false);
+                    dep.setMostrarImagen(true);
+                    dep.setBlock(1);
+                    dmon.setNum(5002);
+                    dmon.setMostrarImagen(true);
+                    dmon.setBlock(1);
+                    blockm = 1;
+                    blockp = 1;
+                    block = 1;
+                } else if(block == 1) {
+                    System.out.println("Saque el producto de la Expendedora y su vuelto");
+                    System.out.println("");
+                }
+            } else if(select == Seleccion.SUPER8SELECCION && mon instanceof Moneda500) {
+                if(block == 0) {
+                    dep.setNum(5);
+                    super8.ComprarSuper8();
+                    super8.setMostrarImagen(false);
+                    dep.setMostrarImagen(true);
+                    dep.setBlock(1);
+                    dmon.setNum(6002);
+                    dmon.setMostrarImagen(true);
+                    dmon.setBlock(1);
+                    blockm = 1;
+                    blockp = 1;
+                    block = 1;
+                } else if(block == 1) {
+                    System.out.println("Saque el producto de la Expendedora y su vuelto");
+                    System.out.println("");
                 }
             }
             proGroup.clearSelection();

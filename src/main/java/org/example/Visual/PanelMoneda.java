@@ -71,12 +71,18 @@ public class PanelMoneda extends JPanel {
                 mostrar2 = mostrar;
                 snickersN += 1;
                 repaint();
+            } else if((num == 5002) && snickersN < 12) {
+                snickersN += 1;
             } else if((num == 600) && super8N < 12) {
                 mostrar1 = mostrar;
                 mostrar2 = mostrar;
                 super8N += 1;
                 repaint();
-            } else if((num == 0) && cocaN < 12) {
+            }  else if((num == 6002) && super8N < 12) {
+                mostrar1 = mostrar;
+                super8N += 1;
+                repaint();
+            }else if((num == 0) && cocaN < 12) {
                 cocaN += 1;
             }
         }
