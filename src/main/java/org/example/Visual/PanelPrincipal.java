@@ -32,7 +32,8 @@ public class PanelPrincipal extends JPanel implements ActionListener {
     private JButton cancelarButton;
 
     private PanelDeposito sprite;
-
+    private PanelCocacola cocacola;
+    private PanelFanta fanta;
 
     public PanelPrincipal() {
         super();
@@ -88,8 +89,8 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         panelBot.add(cancelarButton);
         panelExp.add(fillButton);
 
-        button1.setBounds(50, 50, 110, 30);
-        button2.setBounds(50, 105, 110, 30);
+        button1.setBounds(50, 105, 110, 30);
+        button2.setBounds(50, 50, 110, 30);
         button3.setBounds(50, 160, 110, 30);
         button4.setBounds(50, 215, 110, 30);
         button5.setBounds(50, 270, 110, 30);
@@ -113,6 +114,8 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         cancelarButton.addActionListener(this);
 
         sprite = panelExp.getSpriteDep();
+        cocacola = panelExp.getCocaDep();
+        fanta = panelExp.getFantaDep();
 
         this.setPreferredSize(new Dimension(1200, 600));
     }
@@ -139,10 +142,22 @@ public class PanelPrincipal extends JPanel implements ActionListener {
             exp = new Expendedor(6);
             sprite.RellenarSprite();
             sprite.RecolocarImagen(true);
+            cocacola.RellenarCoca();
+            cocacola.RecolocarImagen(true);
+            fanta.RellenarFanta();
+            fanta.RecolocarImagen(true);
         } else if (e.getSource() == comprarButton) {
             if(select == Seleccion.SPRITESELECCION && mon instanceof Moneda1000){
                 sprite.ComprarSprite();
                 sprite.setMostrarImagen(false);
+            }
+            if(select == Seleccion.COCASELECCION && mon instanceof Moneda1000){
+                cocacola.ComprarCoca();
+                cocacola.setMostrarImagen(false);
+            }
+            if(select == Seleccion.FANTASELECCION && mon instanceof Moneda1000){
+                fanta.ComprarFanta();
+                fanta.setMostrarImagen(false);
             }
             com = new Comprador(mon, select, exp);
             System.out.println(com.queCompraste() + " " + com.cuantoVuelto());

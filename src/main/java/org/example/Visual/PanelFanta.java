@@ -5,8 +5,7 @@ import org.example.Logic.CantidadInicial;
 import javax.swing.*;
 import java.awt.*;
 
-
-public class PanelDeposito extends JPanel {
+public class PanelFanta extends JPanel{
     private Image imagen1;
     private boolean mostrar1 = true;
     private Image imagen2;
@@ -21,16 +20,18 @@ public class PanelDeposito extends JPanel {
     private boolean mostrar6 = true;
     private int num;
 
-    public PanelDeposito() {
+    public PanelFanta() {
 
-        ImageIcon iconoOriginal = new ImageIcon("sprite.png");
+        ImageIcon iconoOriginal = new ImageIcon("fanta.png");
         imagen1 = iconoOriginal.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         imagen2 = iconoOriginal.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         imagen3 = iconoOriginal.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         imagen4 = iconoOriginal.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         imagen5 = iconoOriginal.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         imagen6 = iconoOriginal.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+        setBackground(Color.cyan);
         setOpaque(false);
+        this.setBounds(0, 0, 1000, 200);
         this.setPreferredSize(new Dimension(1200, 600));
 
         num = CantidadInicial.INICALNUMBER.getInicialNum();
@@ -93,17 +94,13 @@ public class PanelDeposito extends JPanel {
         repaint();
     }
 
-    public int ComprarSprite() {
+    public int ComprarFanta() {
         num -= 1;
         return num;
     }
 
-    public int RellenarSprite() {
+    public int RellenarFanta() {
         num = CantidadInicial.INICALNUMBER.getInicialNum();
         return num;
     }
 }
-
-
-
-
