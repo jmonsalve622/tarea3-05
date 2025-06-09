@@ -139,7 +139,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         } else if (e.getSource() == m1000Button) {
             mon = new Moneda1000();
         } else if (e.getSource() == fillButton) {
-            exp = new Expendedor(6);
+            exp = new Expendedor(CantidadInicial.INICALNUMBER.getInicialNum());
             sprite.RellenarSprite();
             sprite.RecolocarImagen(true);
             cocacola.RellenarCoca();
