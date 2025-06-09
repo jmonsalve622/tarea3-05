@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PanelEspecial extends JPanel{
+    /*
+    Aca tenemos los Privates que referencian a las imagenes de cada producto individualmente
+     */
     private Image imagen1;
     private boolean mostrar1 = false;
     private Image imagen2;
@@ -18,6 +21,9 @@ public class PanelEspecial extends JPanel{
     private int num;
     private int block = 0;
 
+    /*
+    El constructor de PanelEspecial, Aca se crean las imagenes que se usaran despues.
+     */
     public PanelEspecial() {
 
         ImageIcon iconoCoca = new ImageIcon("cocacola.png");
@@ -35,27 +41,28 @@ public class PanelEspecial extends JPanel{
 
     }
 
+    /*
+    Este metodo paintComponet sirve para pintar los iconos, pero solo tiene permitido mostrar uno a las vez.
+     */
     @Override
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
         if (mostrar1 && imagen1 != null) {
             g.drawImage(imagen1, 35, 0, this);
-        }
-        if (mostrar2 && imagen2 != null) {
+        } else if (mostrar2 && imagen2 != null) {
             g.drawImage(imagen2, 25, 0, this);
-        }
-        if (mostrar3 && imagen3 != null) {
+        } else if (mostrar3 && imagen3 != null) {
             g.drawImage(imagen3, 27, 0, this);
-        }
-        if (mostrar4 && imagen4 != null) {
+        } else if (mostrar4 && imagen4 != null) {
             g.drawImage(imagen4, 26, 0, this);
-        }
-        if (mostrar5 && imagen5 != null) {
+        } else if (mostrar5 && imagen5 != null) {
             g.drawImage(imagen5, 35, 0, this);
         }
     }
 
-
+    /*
+    Esto es un metodo que permite elegir que producto se mostrara en el PanelEspecial.
+     */
     public void setMostrarImagen(boolean mostrar) {
         if (block != 1) {
             if(num == 1){
@@ -77,6 +84,10 @@ public class PanelEspecial extends JPanel{
         }
     }
 
+    /*
+    Estos metodos de aca abajo, son Setters que permiten cambiar las variables num y block
+    , estas variables son utiles para verificar si hay un producto en PanelEspecial o no.
+     */
     public void setNum(int n){
         num = n;
     }

@@ -39,7 +39,10 @@ public class PanelPrincipal extends JPanel implements ActionListener {
     private PanelSnickers snickers;
     private PanelSuper8 super8;
     private PanelEspecial dep;
+    private PanelMoneda dmon;
     private int block = 0;
+    private int blockm = 0;
+    private int blockp = 0;
 
     public PanelPrincipal() {
         super();
@@ -133,6 +136,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         snickers = panelExp.getSnikersDep();
         super8 = panelExp.getSuper8Dep();
         dep = panelExp.getEsDep();
+        dmon = panelExp.getMoDep();
 
 
         this.setPreferredSize(new Dimension(1200, 600));
@@ -193,9 +197,14 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     sprite.setMostrarImagen(false);
                     dep.setMostrarImagen(true);
                     dep.setBlock(1);
+                    dmon.setNum(200);
+                    dmon.setMostrarImagen(true);
+                    dmon.setBlock(1);
+                    blockm = 1;
+                    blockp = 1;
                     block = 1;
                 } else if (block == 1) {
-                    System.out.println("Saque el producto de la Expendedora");
+                    System.out.println("Saque el producto de la Expendedora y su vuelto");
                 }
             } else if (select == Seleccion.COCASELECCION && mon instanceof Moneda1000){
                 if(block == 0){
@@ -204,9 +213,14 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     cocacola.setMostrarImagen(false);
                     dep.setMostrarImagen(true);
                     dep.setBlock(1);
+                    dmon.setNum(0);
+                    dmon.setMostrarImagen(true);
+                    dmon.setBlock(1);
+                    blockm = 1;
+                    blockp = 1;
                     block = 1;
                 } else if (block == 1) {
-                    System.out.println("Saque el producto de la Expendedora");
+                    System.out.println("Saque el producto de la Expendedora y su vuelto");
                 }
             } else if (select == Seleccion.FANTASELECCION && mon instanceof Moneda1000){
                 if(block == 0){
@@ -215,9 +229,14 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     fanta.setMostrarImagen(false);
                     dep.setMostrarImagen(true);
                     dep.setBlock(1);
+                    dmon.setNum(100);
+                    dmon.setMostrarImagen(true);
+                    dmon.setBlock(1);
+                    blockm = 1;
+                    blockp = 1;
                     block = 1;
                 } else if (block == 1) {
-                    System.out.println("Saque el producto de la Expendedora");
+                    System.out.println("Saque el producto de la Expendedora y su vuelto");
                 }
             } else if (select == Seleccion.SNICKERSSELECCION && (mon instanceof Moneda500 || mon instanceof Moneda1000)){
                 if(block == 0){
@@ -226,9 +245,14 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     snickers.setMostrarImagen(false);
                     dep.setMostrarImagen(true);
                     dep.setBlock(1);
+                    dmon.setNum(500);
+                    dmon.setMostrarImagen(true);
+                    dmon.setBlock(1);
+                    blockm = 1;
+                    blockp = 1;
                     block = 1;
                 } else if (block == 1) {
-                    System.out.println("Saque el producto de la Expendedora");
+                    System.out.println("Saque el producto de la Expendedora y su vuelto");
                 }
             } else if (select == Seleccion.SUPER8SELECCION && (mon instanceof Moneda500 || mon instanceof Moneda1000)){
                 if(block == 0){
@@ -237,9 +261,14 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     super8.setMostrarImagen(false);
                     dep.setMostrarImagen(true);
                     dep.setBlock(1);
+                    dmon.setNum(600);
+                    dmon.setMostrarImagen(true);
+                    dmon.setBlock(1);
+                    blockm = 1;
+                    blockp = 1;
                     block = 1;
                 } else if (block == 1) {
-                    System.out.println("Saque el producto de la Expendedora");
+                    System.out.println("Saque el producto de la Expendedora y su vuelto");
                 }
             }
             proGroup.clearSelection();
@@ -252,10 +281,22 @@ public class PanelPrincipal extends JPanel implements ActionListener {
             mon = null;
             select = null;
         } else if (e.getSource() == productoButton) {
-            block = 0;
+            blockp = 0;
             dep.setBlock(0);
             dep.setMostrarImagen(false);
+            if(blockm == 0) {
+                block = 0;
+            }
+        } else if (e.getSource() == vueltoButton) {
+            blockm = 0;
+            dmon.setBlock(0);
+            dmon.setMostrarImagen(false);
+            if(blockp == 0) {
+                block = 0;
+            }
         }
+
+
     }
 
     @Override

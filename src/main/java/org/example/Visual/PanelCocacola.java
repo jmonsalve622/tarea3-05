@@ -29,7 +29,7 @@ public class PanelCocacola extends JPanel {
         imagen4 = iconoOriginal.getImage().getScaledInstance(30, 50, Image.SCALE_SMOOTH);
         imagen5 = iconoOriginal.getImage().getScaledInstance(30, 50, Image.SCALE_SMOOTH);
         imagen6 = iconoOriginal.getImage().getScaledInstance(30, 50, Image.SCALE_SMOOTH);
-        setBackground(Color.cyan);
+        setBackground(Color.orange);
         setOpaque(false);
         this.setBounds(0, 0, 1000, 200);
         this.setPreferredSize(new Dimension(1200, 600));

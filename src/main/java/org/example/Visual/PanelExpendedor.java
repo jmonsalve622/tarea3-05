@@ -13,6 +13,7 @@ public class PanelExpendedor extends JPanel {
      private PanelSuper8 super8Dep;
      private PanelSnickers snikersDep;
      private PanelEspecial dep;
+     private PanelMoneda dmon;
 
      /*
      Aca tenemos el constructor de la expendedora, que crea cada panel de deposito de cada producto
@@ -40,7 +41,7 @@ public class PanelExpendedor extends JPanel {
           JPanel panelInterno2 = new JPanel();
 
           panelInterno2.setLayout(null);
-          panelInterno2.setBackground(Color.cyan);
+          panelInterno2.setBackground(Color.orange);
           panelInterno2.setBounds(200, 180, 300, 50);
           cocaDep = new PanelCocacola();
           cocaDep.setBounds(0, 0, 1000, 200);
@@ -52,7 +53,7 @@ public class PanelExpendedor extends JPanel {
           JPanel panelInterno3 = new JPanel();
 
           panelInterno3.setLayout(null);
-          panelInterno3.setBackground(Color.cyan);
+          panelInterno3.setBackground(Color.yellow);
           panelInterno3.setBounds(200, 260, 300, 50);
           fantaDep = new PanelFanta();
           fantaDep.setBounds(0, 0, 1000, 200);
@@ -64,7 +65,7 @@ public class PanelExpendedor extends JPanel {
           JPanel panelInterno4 = new JPanel();
 
           panelInterno4.setLayout(null);
-          panelInterno4.setBackground(Color.cyan);
+          panelInterno4.setBackground(Color.gray);
           panelInterno4.setBounds(200, 340, 300, 50);
           snikersDep = new PanelSnickers();
           snikersDep.setBounds(0, 0, 1000, 200);
@@ -76,7 +77,7 @@ public class PanelExpendedor extends JPanel {
           JPanel panelInterno5 = new JPanel();
 
           panelInterno5.setLayout(null);
-          panelInterno5.setBackground(Color.cyan);
+          panelInterno5.setBackground(Color.white);
           panelInterno5.setBounds(200, 420, 300, 50);
           super8Dep = new PanelSuper8();
           super8Dep.setBounds(0, 0, 1000, 200);
@@ -88,13 +89,25 @@ public class PanelExpendedor extends JPanel {
           JPanel panelEspecial = new JPanel();
 
           panelEspecial.setLayout(null);
-          panelEspecial.setBackground(Color.cyan);
+          panelEspecial.setBackground(Color.white);
           panelEspecial.setBounds(300, 500, 100, 50);
           dep = new PanelEspecial();
           dep.setBounds(0, 0, 1000, 200);
           panelEspecial.add(dep);
 
           this.add(panelEspecial);
+
+
+          JPanel panelMoneda = new JPanel();
+
+          panelMoneda.setLayout(null);
+          panelMoneda.setBackground(Color.PINK);
+          panelMoneda.setBounds(420, 500, 100, 50);
+          dmon = new PanelMoneda();
+          dmon.setBounds(0, 0, 1000, 200);
+          panelMoneda.add(dmon);
+
+          this.add(panelMoneda);
      }
 
      /*
@@ -117,6 +130,9 @@ public class PanelExpendedor extends JPanel {
      }
      public PanelEspecial getEsDep() {
           return dep;
+     }
+     public PanelMoneda getMoDep() {
+          return dmon;
      }
 
      /*
