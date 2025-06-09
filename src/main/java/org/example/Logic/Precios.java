@@ -1,5 +1,8 @@
 package org.example.Logic;
 
+/*
+Aca podemos ver los precios de cada producto que ofrece la expendedora.
+ */
 public enum Precios {
     COCAPRECIO(1000),
     SPRITEPRECIO(800),

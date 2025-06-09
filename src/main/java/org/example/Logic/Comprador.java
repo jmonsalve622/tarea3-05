@@ -4,6 +4,10 @@ import org.example.Visual.PanelPrincipal;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+Esta es la clase Comprador, este esta encargado de comprar el producto y recibirlo,
+para despues decir que fue lo que consumio y cuanto vuelto recibio.
+ */
 public class Comprador {
     private Producto productoComprado;
     private String sonido;

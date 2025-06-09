@@ -3,6 +3,9 @@ package org.example.Visual;
 import javax.swing.*;
 import java.awt.*;
 
+/*
+Aca es donde se crea la ventana con los paneles que se agregaron anteriormente en el PanelPrincipal.
+ */
 public class Ventana extends JFrame {
     private PanelPrincipal dp;
 

@@ -1,5 +1,8 @@
 package org.example.Logic;
 
+/*
+Este enumeracion cumple con entregar la seleccion del producto a la expendedora.
+ */
 public enum Seleccion {
     COCASELECCION(1),
     SPRITESELECCION(2),

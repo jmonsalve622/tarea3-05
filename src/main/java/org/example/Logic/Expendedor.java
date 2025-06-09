@@ -1,5 +1,10 @@
 package org.example.Logic;
 
+/*
+Esto de aca abajo, es el mismisimo Expendedor, aca es donde ocurre toda la magia y este cumple como
+funcion el de recifir toda la informacion, monedas, productos, seleccion, para finalmente con toda
+la informacion, hacer la compra del producto y entregarsela al comprador.
+ */
 public class Expendedor {
     private Deposito<CocaCola> coca = new Deposito<CocaCola>();
     private Deposito<Sprite> sprite = new Deposito<Sprite>();
@@ -20,6 +25,9 @@ public class Expendedor {
         }
     }
 
+    /*
+    Tenemos aca el metodo para agragar el vuelto que se acumula.
+     */
     private void agregarVuelto(int valorVuelto) {
         while (valorVuelto > 0) {
             if (valorVuelto - 1000 >= 0) {
@@ -40,6 +48,9 @@ public class Expendedor {
         }
     }
 
+    /*
+    Aca tenemos el metodo que cumple la funcion de comprar el producto seleccionado con la informacion recibida.
+     */
     public void comprarProducto(Moneda m, Seleccion select) throws RuntimeException {
         if (m == null) { //Si la moneda es un null tira exception
             throw new PagoIncorrectoException();
@@ -127,11 +138,15 @@ public class Expendedor {
         }
     }
 
+    /*
+    Aca abajo tenemos unos Getters, que cumplen con la funcion de entregar lo mencionado a otra clase
+    que lo instancie y lo necesite.
+     */
     public Producto getProducto() {
         return depEsp.getProducto();
     }
 
-    public Moneda getVuelto() { //Metodo que devuelve una sola moneda del deposito monVu
+    public Moneda getVuelto() {
         if (!monVu.empty()) {
             return monVu.get();
         }

@@ -1,6 +1,11 @@
 package org.example.Logic;
 import java.util.Random;
 
+/*
+Aca tenemos la clase de Moneda, esta clase cumple con ser la caracteristica de
+ser cualquier tipo de moneda, pues este influye en el polimorfismo entre las monedas
+de otros valores.
+ */
 abstract public class Moneda implements Comparable<Moneda>{
     private int serie;
 

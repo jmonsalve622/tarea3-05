@@ -5,6 +5,9 @@ import org.example.Logic.CantidadInicial;
 import javax.swing.*;
 import java.awt.*;
 
+/*
+Esto es un Deposito de Cocacola, aca es de donde se saca el producto hasta que no quede mas.
+ */
 public class PanelCocacola extends JPanel {
     private Image imagen1;
     private boolean mostrar1 = true;
@@ -20,6 +23,9 @@ public class PanelCocacola extends JPanel {
     private boolean mostrar6 = true;
     private int num;
 
+    /*
+    Aca es el constructor, donde se crean las imagenes
+     */
     public PanelCocacola() {
 
         ImageIcon iconoOriginal = new ImageIcon("cocacola.png");
@@ -39,6 +45,9 @@ public class PanelCocacola extends JPanel {
     }
 
 
+    /*
+    El metodo de abajo esta encargado de quitar las imagenes de la expendedora cuando se compra el producto.
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -62,28 +71,36 @@ public class PanelCocacola extends JPanel {
         }
     }
 
+    /*
+    Este metodo de abajo acompañado con el metodo de arriba, estan complementados
+    para ver que bebida se muestra y cual no.
+     */
     public void setMostrarImagen(boolean mostrar) {
-        if(num <= 0){
+        if(num == 0){
             mostrar1 = mostrar;
             repaint();
-        } else if(num <= 1){
+        } else if(num == 1){
             mostrar2 = mostrar;
             repaint();
-        } else if(num <= 2){
+        } else if(num == 2){
             mostrar3 = mostrar;
             repaint();
-        } else if(num <= 3){
+        } else if(num == 3){
             mostrar4 = mostrar;
             repaint();
-        } else if(num <= 4){
+        } else if(num == 4){
             mostrar5 = mostrar;
             repaint();
-        } else if(num <= 5){
+        } else if(num == 5){
             mostrar6 = mostrar;
             repaint();
         }
     }
 
+    /*
+    El metodo RecolocarImagen se encarga que boolear la variable mostrar, que se usara para verificar
+    si mostrar o no el producto.
+     */
     public void RecolocarImagen(boolean mostrar) {
         mostrar1 = mostrar;
         mostrar2 = mostrar;
@@ -94,6 +111,10 @@ public class PanelCocacola extends JPanel {
         repaint();
     }
 
+    /*
+    Estos metodos de abajo son Setters, se encargan principalmente de ver cuantos productos
+    quedan en el deposito.
+     */
     public int ComprarCoca() {
         num -= 1;
         return num;

@@ -7,7 +7,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/*
+El PanelPrincipal, tal como lo dice el nombre, es el panel principal, pues aqui estan todos los paneles importantes
+como el panel de comprador, botones y expendedor. Es por este PanelPrincipal que todos los otros paneles queden unidos
+y puedan ser visualizados dentro de la ventana ejecutada.
+ */
 public class PanelPrincipal extends JPanel implements ActionListener {
+    /*
+    Aqui abajo tenemos los privates con sus variables, pues estas variables estan encargadas
+    de instanciar a otros paneles y otras variables fueron creadas como limitantes de la expendedora como un bloqueo.
+     */
     private PanelComprador panelCom;
     private PanelExpendedor panelExp;
     private PanelBotones panelBot;
@@ -33,6 +42,12 @@ public class PanelPrincipal extends JPanel implements ActionListener {
     private JButton productoButton;
     private JButton vueltoButton;
 
+    private PanelSpriteC spriteC;
+    private PanelCocacolaC cocacolaC;
+    private PanelFantaC fantaC;
+    private PanelSnickersC snickersC;
+    private PanelSuper8C super8C;
+
     private PanelSprite sprite;
     private PanelCocacola cocacola;
     private PanelFanta fanta;
@@ -44,6 +59,11 @@ public class PanelPrincipal extends JPanel implements ActionListener {
     private int blockm = 0;
     private int blockp = 0;
 
+
+    /*
+    Aca abajo tenemos el constructor, pues aca estan construidos todos los botones con sus posiciones
+    y tambien se instancian a los otros paneles como el de expendedora, compra y botones.
+     */
     public PanelPrincipal() {
         super();
         this.setLayout(null);
@@ -138,6 +158,12 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         dep = panelExp.getEsDep();
         dmon = panelExp.getMoDep();
 
+        spriteC = panelCom.getSpriteC();
+        cocacolaC = panelCom.getCocaC();
+        fantaC = panelCom.getFantaC();
+        snickersC = panelCom.getSnickersC();
+        super8C = panelCom.getSuper8C();
+
 
         this.setPreferredSize(new Dimension(1200, 600));
     }
@@ -174,6 +200,8 @@ public class PanelPrincipal extends JPanel implements ActionListener {
             snickers.RecolocarImagen(true);
             super8.RellenarSuper8();
             super8.RecolocarImagen(true);
+            dep.setNumN();
+            dmon.setNumN();
         } else if (e.getSource() == comprarButton) {
             if(block == 0){
                 com = new Comprador(mon, select, exp);
@@ -274,13 +302,33 @@ public class PanelPrincipal extends JPanel implements ActionListener {
             proGroup.clearSelection();
             monGroup.clearSelection();
             mon = null;
-            select = null;
         } else if (e.getSource() == cancelarButton) {
             proGroup.clearSelection();
             monGroup.clearSelection();
             mon = null;
             select = null;
         } else if (e.getSource() == productoButton) {
+            if(select == Seleccion.SPRITESELECCION) {
+                spriteC.RecogerSprite();
+                spriteC.setMostrarImagen(true);
+                select = null;
+            } else if(select == Seleccion.COCASELECCION) {
+                cocacolaC.RecogerCoca();
+                cocacolaC.setMostrarImagen(true);
+                select = null;
+            } else if(select == Seleccion.FANTASELECCION) {
+                fantaC.RecogerFanta();
+                fantaC.setMostrarImagen(true);
+                select = null;
+            } else if(select == Seleccion.SNICKERSSELECCION) {
+                snickersC.RecogerSnickers();
+                snickersC.setMostrarImagen(true);
+                select = null;
+            } else if(select == Seleccion.SUPER8SELECCION) {
+                super8C.RecogerSuper8();
+                super8C.setMostrarImagen(true);
+                select = null;
+            }
             blockp = 0;
             dep.setBlock(0);
             dep.setMostrarImagen(false);

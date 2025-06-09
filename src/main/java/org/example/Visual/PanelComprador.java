@@ -1,29 +1,29 @@
 package org.example.Visual;
 
-import org.example.Logic.*;
 import javax.swing.*;
 import java.awt.*;
-import java.util.Stack;
-import java.util.List;
 
+/*
+Aca tenemos el panel del comprador, aca se puede apreciar el inventario y su contenido.
+ */
 public class PanelComprador extends JPanel {
-    private List<Moneda100> m100Stack = new Stack<>();
-    private List<Moneda500> m500Stack = new Stack<>();
-    private List<Moneda1000> m1000Stack = new Stack<>();
-    private List<Producto> productStack = new Stack<>();
+
     private JPanel m100Panel;
     private JPanel m500Panel;
     private JPanel m1000Panel;
     private JPanel productPanel;
 
+    private PanelCocacolaC cocaDep;
+    private PanelSpriteC spriteDep;
+    private PanelFantaC fantaDep;
+    private PanelSuper8C super8Dep;
+    private PanelSnickersC snickersDep;
+
+    /*
+    Este es el constructor, pues aca se estan encargando de meter las imagenes de los objetos
+    que se iran metiendo al inventario a medida que compras en la expendedora.
+     */
     public PanelComprador() {
-        m1000Stack.add(new Moneda1000());
-        m1000Stack.add(new Moneda1000());
-        m500Stack.add(new Moneda500());
-        m500Stack.add(new Moneda500());
-        for (int i = 0; i < 5; i++) {
-            m100Stack.add(new Moneda100());
-        }
         
         setPreferredSize(new Dimension(1200, 100));
         setBackground(Color.BLUE);
@@ -32,33 +32,51 @@ public class PanelComprador extends JPanel {
         m100Panel = new JPanel();
         m500Panel = new JPanel();
         m1000Panel = new JPanel();
-        productPanel = new JPanel();
+
 
         m100Panel.setBounds(20, 20, 260, 50);
         m500Panel.setBounds(20, 80, 260 ,50);
         m1000Panel.setBounds(20, 140, 260 ,50);
-        productPanel.setBounds(20, 200, 260, 370);
 
         this.add(m100Panel);
         this.add(m500Panel);
         this.add(m1000Panel);
+
+        productPanel = new JPanel();
+        productPanel.setLayout(null);
+        productPanel.setBounds(20, 200, 260, 370);
+        spriteDep = new PanelSpriteC();
+        spriteDep.setBounds(0, 0, 1000, 370);
+        productPanel.add(spriteDep);
+        cocaDep = new PanelCocacolaC();
+        cocaDep.setBounds(0, 0, 1000, 370);
+        productPanel.add(cocaDep);
+        fantaDep = new PanelFantaC();
+        fantaDep.setBounds(0, 0, 1000, 370);
+        productPanel.add(fantaDep);
+        snickersDep = new PanelSnickersC();
+        snickersDep.setBounds(0, 0, 1000, 370);
+        productPanel.add(snickersDep);
+        super8Dep = new PanelSuper8C();
+        super8Dep.setBounds(0, 0, 1000, 370);
+        productPanel.add(super8Dep);
         this.add(productPanel);
     }
 
-    public List<Moneda100> getM100Stack() {
-        return m100Stack;
+    public PanelSpriteC getSpriteC() {
+        return spriteDep;
     }
-
-    public List<Moneda500> getM500Stack() {
-        return m500Stack;
+    public PanelCocacolaC getCocaC() {
+        return cocaDep;
     }
-
-    public List<Moneda1000> getM1000Stack() {
-        return m1000Stack;
+    public PanelFantaC getFantaC() {
+        return fantaDep;
     }
-
-    public List<Producto> getProductStack() {
-        return productStack;
+    public PanelSnickersC getSnickersC() {
+        return snickersDep;
+    }
+    public PanelSuper8C getSuper8C() {
+        return super8Dep;
     }
 
     @Override

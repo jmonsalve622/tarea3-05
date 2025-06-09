@@ -6,27 +6,28 @@ import javax.swing.*;
 import java.awt.*;
 
 /*
-Esto es un Deposito de Sprite, aca es de donde se saca el producto hasta que no quede mas.
+Esta clase esta hecho para hacer lo mismo que PanelSprite, pero con la diferencia
+que este esta hecho para el PanelComprador y hace lo contrario que PanelSprite.
  */
-public class PanelSprite extends JPanel {
+public class PanelSpriteC extends JPanel {
     private Image imagen1;
-    private boolean mostrar1 = true;
+    private boolean mostrar1 = false;
     private Image imagen2;
-    private boolean mostrar2 = true;
+    private boolean mostrar2 = false;
     private Image imagen3;
-    private boolean mostrar3 = true;
+    private boolean mostrar3 = false;
     private Image imagen4;
-    private boolean mostrar4 = true;
+    private boolean mostrar4 = false;
     private Image imagen5;
-    private boolean mostrar5 = true;
+    private boolean mostrar5 = false;
     private Image imagen6;
-    private boolean mostrar6 = true;
+    private boolean mostrar6 = false;
     private int num;
 
     /*
-    Aca es el constructor, donde se crean las imagenes
+    El constructor el cual crea las imagenes que se usaran luego.
      */
-    public PanelSprite() {
+    public PanelSpriteC() {
 
         ImageIcon iconoOriginal = new ImageIcon("sprite.png");
         imagen1 = iconoOriginal.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
@@ -43,9 +44,6 @@ public class PanelSprite extends JPanel {
     }
 
 
-    /*
-    El metodo de abajo esta encargado de quitar las imagenes de la expendedora cuando se compra el producto.
-     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -70,60 +68,34 @@ public class PanelSprite extends JPanel {
     }
 
     /*
-    Este metodo de abajo acompañado con el metodo de arriba, estan complementados
-    para ver que bebida se muestra y cual no.
+    Aca la diferencia con su respectivo clase gemelo, es que aca en vez de desaparecer, la bedida aparece
+    dentro del inventario del comprador.
      */
     public void setMostrarImagen(boolean mostrar) {
-        if(num <= 0){
-            mostrar1 = mostrar;
+        if(num == 0){
+            mostrar6 = mostrar;
             repaint();
         } else if(num == 1){
-            mostrar2 = mostrar;
-            repaint();
-        } else if(num == 2){
-            mostrar3 = mostrar;
-            repaint();
-        } else if(num == 3){
-            mostrar4 = mostrar;
-            repaint();
-        } else if(num == 4){
             mostrar5 = mostrar;
             repaint();
+        } else if(num == 2){
+            mostrar4 = mostrar;
+            repaint();
+        } else if(num == 3){
+            mostrar3 = mostrar;
+            repaint();
+        } else if(num == 4){
+            mostrar2 = mostrar;
+            repaint();
         } else if(num == 5){
-            mostrar6 = mostrar;
+            mostrar1 = mostrar;
             repaint();
         }
     }
 
-    /*
-    El metodo RecolocarImagen se encarga que boolear la variable mostrar, que se usara para verificar
-    si mostrar o no el producto.
-     */
-    public void RecolocarImagen(boolean mostrar) {
-        mostrar1 = mostrar;
-        mostrar2 = mostrar;
-        mostrar3 = mostrar;
-        mostrar4 = mostrar;
-        mostrar5 = mostrar;
-        mostrar6 = mostrar;
-        repaint();
-    }
-
-    /*
-    Estos metodos de abajo son Setters, se encargan principalmente de ver cuantos productos
-    quedan en el deposito.
-     */
-    public int ComprarSprite() {
+    public int RecogerSprite() {
         num -= 1;
         return num;
     }
 
-    public int RellenarSprite() {
-        num = CantidadInicial.INICALNUMBER.getInicialNum();
-        return num;
-    }
 }
-
-
-
-

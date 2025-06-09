@@ -20,6 +20,11 @@ public class PanelEspecial extends JPanel{
 
     private int num;
     private int block = 0;
+    private int spriN = 0;
+    private int cocaN = 0;
+    private int fantaN = 0;
+    private int snickersN = 0;
+    private int super8N = 0;
 
     /*
     El constructor de PanelEspecial, Aca se crean las imagenes que se usaran despues.
@@ -47,15 +52,15 @@ public class PanelEspecial extends JPanel{
     @Override
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
-        if (mostrar1 && imagen1 != null) {
+        if ((mostrar1 && imagen1 != null) && cocaN < 12) {
             g.drawImage(imagen1, 35, 0, this);
-        } else if (mostrar2 && imagen2 != null) {
+        } else if ((mostrar2 && imagen2 != null) && spriN < 12) {
             g.drawImage(imagen2, 25, 0, this);
-        } else if (mostrar3 && imagen3 != null) {
+        } else if ((mostrar3 && imagen3 != null) && fantaN < 12) {
             g.drawImage(imagen3, 27, 0, this);
-        } else if (mostrar4 && imagen4 != null) {
+        } else if ((mostrar4 && imagen4 != null) && snickersN < 12) {
             g.drawImage(imagen4, 26, 0, this);
-        } else if (mostrar5 && imagen5 != null) {
+        } else if ((mostrar5 && imagen5 != null) && super8N < 12) {
             g.drawImage(imagen5, 35, 0, this);
         }
     }
@@ -67,18 +72,23 @@ public class PanelEspecial extends JPanel{
         if (block != 1) {
             if(num == 1){
                 mostrar1 = mostrar;
+                cocaN += 1;
                 repaint();
             } else if(num == 2){
                 mostrar2 = mostrar;
+                spriN += 1;
                 repaint();
             } else if(num == 3){
                 mostrar3 = mostrar;
+                fantaN += 1;
                 repaint();
             } else if(num == 4){
                 mostrar4 = mostrar;
+                snickersN += 1;
                 repaint();
             } else if(num == 5){
                 mostrar5 = mostrar;
+                super8N += 1;
                 repaint();
             }
         }
@@ -93,5 +103,12 @@ public class PanelEspecial extends JPanel{
     }
     public void setBlock(int n){
         block = n;
+    }
+    public void setNumN(){
+        cocaN = 0;
+        spriN = 0;
+        fantaN = 0;
+        snickersN = 0;
+        super8N = 0;
     }
 }

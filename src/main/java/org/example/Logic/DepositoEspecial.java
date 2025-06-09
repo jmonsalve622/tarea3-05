@@ -1,5 +1,6 @@
 package org.example.Logic;
 
+
 public class DepositoEspecial {
     private Producto producto = null;
 

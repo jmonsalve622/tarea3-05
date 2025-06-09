@@ -15,6 +15,11 @@ public class PanelMoneda extends JPanel {
     private boolean mostrar3 = false;
     private int num;
     private int block;
+    private int spriN = 0;
+    private int cocaN = 0;
+    private int fantaN = 0;
+    private int snickersN = 0;
+    private int super8N = 0;
 
     /*
     Esto de abajo es el constructor del deposito de monedas,
@@ -53,20 +58,26 @@ public class PanelMoneda extends JPanel {
      */
     public void setMostrarImagen(boolean mostrar) {
         if(block != 1) {
-            if(num == 200) {
+            if((num == 200) && spriN < 12) {
                 mostrar1 = mostrar;
                 mostrar3 = mostrar;
+                spriN += 1;
                 repaint();
-            } else if(num == 100) {
+            } else if((num == 100) && fantaN < 12) {
                 mostrar1 = mostrar;
+                fantaN += 1;
                 repaint();
-            } else if(num == 500) {
+            } else if((num == 500) && snickersN < 12) {
                 mostrar2 = mostrar;
+                snickersN += 1;
                 repaint();
-            } else if(num == 600) {
+            } else if((num == 600) && super8N < 12) {
                 mostrar1 = mostrar;
                 mostrar2 = mostrar;
+                super8N += 1;
                 repaint();
+            } else if((num == 0) && cocaN < 12) {
+                cocaN += 1;
             }
         }
     }
@@ -79,5 +90,12 @@ public class PanelMoneda extends JPanel {
     }
     public void setBlock(int n){
         block = n;
+    }
+    public void setNumN() {
+        cocaN = 0;
+        spriN = 0;
+        fantaN = 0;
+        snickersN = 0;
+        super8N = 0;
     }
 }

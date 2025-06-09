@@ -1,5 +1,9 @@
 package org.example.Logic;
 
+/*
+Aca podemos observar la clase Producto, que cumple con ser un apoyo del
+polimorfismo sobre otros productos como bebidas y comestibles.
+ */
 abstract public class Producto {
     private int serie;
 

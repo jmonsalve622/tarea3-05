@@ -6,27 +6,28 @@ import javax.swing.*;
 import java.awt.*;
 
 /*
-Esto es un Deposito de Super8, aca es de donde se saca el producto hasta que no quede mas.
+Esta clase esta hecho para hacer lo mismo que PanelSuper8, pero con la diferencia
+que este esta hecho para el PanelComprador y hace lo contrario que PanelSuper8.
  */
-public class PanelSuper8 extends JPanel {
+public class PanelSuper8C extends JPanel {
     private Image imagen1;
-    private boolean mostrar1 = true;
+    private boolean mostrar1 = false;
     private Image imagen2;
-    private boolean mostrar2 = true;
+    private boolean mostrar2 = false;
     private Image imagen3;
-    private boolean mostrar3 = true;
+    private boolean mostrar3 = false;
     private Image imagen4;
-    private boolean mostrar4 = true;
+    private boolean mostrar4 = false;
     private Image imagen5;
-    private boolean mostrar5 = true;
+    private boolean mostrar5 = false;
     private Image imagen6;
-    private boolean mostrar6 = true;
+    private boolean mostrar6 = false;
     private int num;
 
     /*
-    Aca es el constructor, donde se crean las imagenes
+    El constructor el cual crea las imagenes que se usaran luego.
      */
-    public PanelSuper8() {
+    public PanelSuper8C() {
 
         ImageIcon iconoOriginal = new ImageIcon("super8.png");
         imagen1 = iconoOriginal.getImage().getScaledInstance(30, 50, Image.SCALE_SMOOTH);
@@ -35,9 +36,7 @@ public class PanelSuper8 extends JPanel {
         imagen4 = iconoOriginal.getImage().getScaledInstance(30, 50, Image.SCALE_SMOOTH);
         imagen5 = iconoOriginal.getImage().getScaledInstance(30, 50, Image.SCALE_SMOOTH);
         imagen6 = iconoOriginal.getImage().getScaledInstance(30, 50, Image.SCALE_SMOOTH);
-        setBackground(Color.cyan);
         setOpaque(false);
-        this.setBounds(0, 0, 1000, 200);
         this.setPreferredSize(new Dimension(1200, 600));
 
         num = CantidadInicial.INICALNUMBER.getInicialNum();
@@ -45,83 +44,58 @@ public class PanelSuper8 extends JPanel {
     }
 
 
-    /*
-    El metodo de abajo esta encargado de quitar las imagenes de la expendedora cuando se compra el producto.
-     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         if (mostrar1 && imagen1 != null){
-            g.drawImage(imagen1, 10, 0, this);
+            g.drawImage(imagen1, 10, 240, this);
         }
         if (mostrar2 && imagen2 != null){
-            g.drawImage(imagen2, 60, 0, this);
+            g.drawImage(imagen2, 60, 240, this);
         }
         if (mostrar3 && imagen3 != null){
-            g.drawImage(imagen3, 110, 0, this);
+            g.drawImage(imagen3, 110, 240, this);
         }
         if (mostrar4 && imagen4 != null){
-            g.drawImage(imagen4, 160, 0, this);
+            g.drawImage(imagen4, 160, 240, this);
         }
         if (mostrar5 && imagen5 != null){
-            g.drawImage(imagen5, 210, 0, this);
+            g.drawImage(imagen5, 210, 240, this);
         }
         if (mostrar6 && imagen6 != null){
-            g.drawImage(imagen6, 260, 0, this);
+            g.drawImage(imagen6, 260, 240, this);
         }
     }
 
     /*
-    Este metodo de abajo acompañado con el metodo de arriba, estan complementados
-    para ver que bebida se muestra y cual no.
+    Aca la diferencia con su respectivo clase gemelo, es que aca en vez de desaparecer, la bedida aparece
+    dentro del inventario del comprador.
      */
     public void setMostrarImagen(boolean mostrar) {
         if(num == 0){
-            mostrar1 = mostrar;
+            mostrar6 = mostrar;
             repaint();
         } else if(num == 1){
-            mostrar2 = mostrar;
-            repaint();
-        } else if(num == 2){
-            mostrar3 = mostrar;
-            repaint();
-        } else if(num == 3){
-            mostrar4 = mostrar;
-            repaint();
-        } else if(num == 4){
             mostrar5 = mostrar;
             repaint();
+        } else if(num == 2){
+            mostrar4 = mostrar;
+            repaint();
+        } else if(num == 3){
+            mostrar3 = mostrar;
+            repaint();
+        } else if(num == 4){
+            mostrar2 = mostrar;
+            repaint();
         } else if(num == 5){
-            mostrar6 = mostrar;
+            mostrar1 = mostrar;
             repaint();
         }
     }
 
-    /*
-    El metodo RecolocarImagen se encarga que boolear la variable mostrar, que se usara para verificar
-    si mostrar o no el producto.
-     */
-    public void RecolocarImagen(boolean mostrar) {
-        mostrar1 = mostrar;
-        mostrar2 = mostrar;
-        mostrar3 = mostrar;
-        mostrar4 = mostrar;
-        mostrar5 = mostrar;
-        mostrar6 = mostrar;
-        repaint();
-    }
-
-    /*
-    Estos metodos de abajo son Setters, se encargan principalmente de ver cuantos productos
-    quedan en el deposito.
-     */
-    public int ComprarSuper8() {
+    public int RecogerSuper8() {
         num -= 1;
         return num;
     }
 
-    public int RellenarSuper8() {
-        num = CantidadInicial.INICALNUMBER.getInicialNum();
-        return num;
-    }
 }

@@ -1,6 +1,10 @@
 package org.example.Logic;
 import java.util.ArrayList;
 
+/*
+Aca tenemos la lista del deposito, este nos ayuda a organizar el arreglo que tendremos
+en el deposito y elegir que meter o sacar.
+ */
 public class Deposito <T> {
     private ArrayList list;
     public Deposito() {
