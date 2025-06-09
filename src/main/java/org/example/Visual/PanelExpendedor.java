@@ -17,7 +17,7 @@ public class PanelExpendedor extends JPanel {
      private PanelFanta fantaDep;
      private PanelSuper8 super8Dep;
      private PanelSnickers snikersDep;
-     private PanelDeposito dep;
+     private PanelEspecial dep;
 
      /*
      Aca tenemos el constructor de la expendedora, que crea cada panel de deposito de cada producto
@@ -46,7 +46,7 @@ public class PanelExpendedor extends JPanel {
 
           panelInterno2.setLayout(null);
           panelInterno2.setBackground(Color.cyan);
-          panelInterno2.setBounds(200, 170, 300, 50);
+          panelInterno2.setBounds(200, 180, 300, 50);
           cocaDep = new PanelCocacola();
           cocaDep.setBounds(0, 0, 1000, 200);
           panelInterno2.add(cocaDep);
@@ -58,7 +58,7 @@ public class PanelExpendedor extends JPanel {
 
           panelInterno3.setLayout(null);
           panelInterno3.setBackground(Color.cyan);
-          panelInterno3.setBounds(200, 240, 300, 50);
+          panelInterno3.setBounds(200, 260, 300, 50);
           fantaDep = new PanelFanta();
           fantaDep.setBounds(0, 0, 1000, 200);
           panelInterno3.add(fantaDep);
@@ -70,7 +70,7 @@ public class PanelExpendedor extends JPanel {
 
           panelInterno4.setLayout(null);
           panelInterno4.setBackground(Color.cyan);
-          panelInterno4.setBounds(200, 310, 300, 50);
+          panelInterno4.setBounds(200, 340, 300, 50);
           snikersDep = new PanelSnickers();
           snikersDep.setBounds(0, 0, 1000, 200);
           panelInterno4.add(snikersDep);
@@ -82,12 +82,23 @@ public class PanelExpendedor extends JPanel {
 
           panelInterno5.setLayout(null);
           panelInterno5.setBackground(Color.cyan);
-          panelInterno5.setBounds(200, 380, 300, 50);
+          panelInterno5.setBounds(200, 420, 300, 50);
           super8Dep = new PanelSuper8();
           super8Dep.setBounds(0, 0, 1000, 200);
           panelInterno5.add(super8Dep);
 
           this.add(panelInterno5);
+
+
+          JPanel panelEspecial = new JPanel();
+
+          panelEspecial.setLayout(null);
+          panelEspecial.setBackground(Color.cyan);
+          panelEspecial.setBounds(300, 500, 100, 50);
+          dep = new PanelEspecial();
+
+
+          this.add(panelEspecial);
      }
 
      /*
@@ -101,6 +112,12 @@ public class PanelExpendedor extends JPanel {
      }
      public PanelFanta getFantaDep() {
           return fantaDep;
+     }
+     public PanelSnickers getSnikersDep() {
+          return snikersDep;
+     }
+     public PanelSuper8 getSuper8Dep() {
+          return super8Dep;
      }
 
      /*
