@@ -11,7 +11,7 @@ public class Ventana extends JFrame {
         dp = new PanelPrincipal();
         de = new PanelDeposito();
 
-        this.setTitle("esta Ventana");
+        this.setTitle("Simulador de Expendedor");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
 

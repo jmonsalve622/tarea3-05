@@ -1,10 +1,17 @@
 package org.example.Logic;
+import java.util.Random;
 
 abstract public class Moneda implements Comparable<Moneda>{
-    public Moneda() {}
-    public Moneda getSerie() {
-        return this;
+    private int serie;
+
+    public Moneda() {
+        serie = new Random().nextInt(0, 999999999);
     }
+
+    public int getSerie() {
+        return serie;
+    }
+
     public abstract int getValor();
 
     @Override
