@@ -38,6 +38,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
     private PanelFanta fanta;
     private PanelSnickers snickers;
     private PanelSuper8 super8;
+    private PanelEspecial dep;
 
     public PanelPrincipal() {
         super();
@@ -130,6 +131,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         fanta = panelExp.getFantaDep();
         snickers = panelExp.getSnikersDep();
         super8 = panelExp.getSuper8Dep();
+        dep = panelExp.getEsDep();
 
         this.setPreferredSize(new Dimension(1200, 600));
     }
@@ -166,8 +168,10 @@ public class PanelPrincipal extends JPanel implements ActionListener {
             super8.RecolocarImagen(true);
         } else if (e.getSource() == comprarButton) {
             if (select == Seleccion.SPRITESELECCION && mon instanceof Moneda1000){
+                dep.setNum(2);
                 sprite.ComprarSprite();
                 sprite.setMostrarImagen(false);
+                dep.setMostrarImagen(true);
             } else if (select == Seleccion.COCASELECCION && mon instanceof Moneda1000){
                 cocacola.ComprarCoca();
                 cocacola.setMostrarImagen(false);

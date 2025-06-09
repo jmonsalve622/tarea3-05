@@ -96,7 +96,8 @@ public class PanelExpendedor extends JPanel {
           panelEspecial.setBackground(Color.cyan);
           panelEspecial.setBounds(300, 500, 100, 50);
           dep = new PanelEspecial();
-
+          dep.setBounds(0, 0, 1000, 200);
+          panelEspecial.add(dep);
 
           this.add(panelEspecial);
      }
@@ -118,6 +119,9 @@ public class PanelExpendedor extends JPanel {
      }
      public PanelSuper8 getSuper8Dep() {
           return super8Dep;
+     }
+     public PanelEspecial getEsDep() {
+          return dep;
      }
 
      /*
