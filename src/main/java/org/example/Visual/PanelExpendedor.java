@@ -1,19 +1,14 @@
 package org.example.Visual;
 
-import org.example.Logic.*;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class PanelExpendedor extends JPanel {
      /*
      Abajo tenemos los Privates de cada deposito de cada producto
       */
      private PanelCocacola cocaDep;
-     private PanelDeposito spriteDep;
+     private PanelSprite spriteDep;
      private PanelFanta fantaDep;
      private PanelSuper8 super8Dep;
      private PanelSnickers snikersDep;
@@ -35,7 +30,7 @@ public class PanelExpendedor extends JPanel {
           panelInterno1.setLayout(null);
           panelInterno1.setBackground(Color.cyan);
           panelInterno1.setBounds(200, 100, 300, 50);
-          spriteDep = new PanelDeposito();
+          spriteDep = new PanelSprite();
           spriteDep.setBounds(0, 0, 1000, 200);
           panelInterno1.add(spriteDep);
 
@@ -105,7 +100,7 @@ public class PanelExpendedor extends JPanel {
      /*
      Aca van los Getters de cada producto que vaya a haber.
       */
-     public PanelDeposito getSpriteDep() {
+     public PanelSprite getSpriteDep() {
           return spriteDep;
      }
      public PanelCocacola getCocaDep() {

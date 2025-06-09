@@ -33,12 +33,13 @@ public class PanelPrincipal extends JPanel implements ActionListener {
     private JButton productoButton;
     private JButton vueltoButton;
 
-    private PanelDeposito sprite;
+    private PanelSprite sprite;
     private PanelCocacola cocacola;
     private PanelFanta fanta;
     private PanelSnickers snickers;
     private PanelSuper8 super8;
     private PanelEspecial dep;
+    private int block = 0;
 
     public PanelPrincipal() {
         super();
@@ -133,10 +134,13 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         super8 = panelExp.getSuper8Dep();
         dep = panelExp.getEsDep();
 
+
         this.setPreferredSize(new Dimension(1200, 600));
     }
 
-
+    /*
+    Aca tenemos La configuracion de todos los botones que hay en toda la aplicacion
+     */
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == button1) {
             select = Seleccion.COCASELECCION;
@@ -167,36 +171,76 @@ public class PanelPrincipal extends JPanel implements ActionListener {
             super8.RellenarSuper8();
             super8.RecolocarImagen(true);
         } else if (e.getSource() == comprarButton) {
+            if(block == 0){
+                com = new Comprador(mon, select, exp);
+                System.out.println("Nombre Producto: " + com.queCompraste());
+                System.out.println("Vuelto: $" + com.cuantoVuelto());
+                if (mon != null) {
+                    System.out.println("Serie Moneda: " + mon.getSerie());
+                } else {
+                    System.out.println("No se ocupo una moneda");
+                }
+                if (com.getProductoComprado() != null) {
+                    System.out.println("Serie Producto: " + com.getProductoComprado().getSerie());
+                } else {
+                    System.out.println("No se obtuvo producto");
+                }
+            }
             if (select == Seleccion.SPRITESELECCION && mon instanceof Moneda1000){
-                dep.setNum(2);
-                sprite.ComprarSprite();
-                sprite.setMostrarImagen(false);
-                dep.setMostrarImagen(true);
+                if(block == 0){
+                    dep.setNum(2);
+                    sprite.ComprarSprite();
+                    sprite.setMostrarImagen(false);
+                    dep.setMostrarImagen(true);
+                    dep.setBlock(1);
+                    block = 1;
+                } else if (block == 1) {
+                    System.out.println("Saque el producto de la Expendedora");
+                }
             } else if (select == Seleccion.COCASELECCION && mon instanceof Moneda1000){
-                cocacola.ComprarCoca();
-                cocacola.setMostrarImagen(false);
+                if(block == 0){
+                    dep.setNum(1);
+                    cocacola.ComprarCoca();
+                    cocacola.setMostrarImagen(false);
+                    dep.setMostrarImagen(true);
+                    dep.setBlock(1);
+                    block = 1;
+                } else if (block == 1) {
+                    System.out.println("Saque el producto de la Expendedora");
+                }
             } else if (select == Seleccion.FANTASELECCION && mon instanceof Moneda1000){
-                fanta.ComprarFanta();
-                fanta.setMostrarImagen(false);
+                if(block == 0){
+                    dep.setNum(3);
+                    fanta.ComprarFanta();
+                    fanta.setMostrarImagen(false);
+                    dep.setMostrarImagen(true);
+                    dep.setBlock(1);
+                    block = 1;
+                } else if (block == 1) {
+                    System.out.println("Saque el producto de la Expendedora");
+                }
             } else if (select == Seleccion.SNICKERSSELECCION && (mon instanceof Moneda500 || mon instanceof Moneda1000)){
-                snickers.ComprarSnickers();
-                snickers.setMostrarImagen(false);
+                if(block == 0){
+                    dep.setNum(4);
+                    snickers.ComprarSnickers();
+                    snickers.setMostrarImagen(false);
+                    dep.setMostrarImagen(true);
+                    dep.setBlock(1);
+                    block = 1;
+                } else if (block == 1) {
+                    System.out.println("Saque el producto de la Expendedora");
+                }
             } else if (select == Seleccion.SUPER8SELECCION && (mon instanceof Moneda500 || mon instanceof Moneda1000)){
-                super8.ComprarSuper8();
-                super8.setMostrarImagen(false);
-            }
-            com = new Comprador(mon, select, exp);
-            System.out.println("Nombre Producto: " + com.queCompraste());
-            System.out.println("Vuelto: $" + com.cuantoVuelto());
-            if (mon != null) {
-                System.out.println("Serie Moneda: " + mon.getSerie());
-            } else {
-                System.out.println("No se ocupo una moneda");
-            }
-            if (com.getProductoComprado() != null) {
-                System.out.println("Serie Producto: " + com.getProductoComprado().getSerie());
-            } else {
-                System.out.println("No se obtuvo producto");
+                if(block == 0){
+                    dep.setNum(5);
+                    super8.ComprarSuper8();
+                    super8.setMostrarImagen(false);
+                    dep.setMostrarImagen(true);
+                    dep.setBlock(1);
+                    block = 1;
+                } else if (block == 1) {
+                    System.out.println("Saque el producto de la Expendedora");
+                }
             }
             proGroup.clearSelection();
             monGroup.clearSelection();
@@ -208,7 +252,9 @@ public class PanelPrincipal extends JPanel implements ActionListener {
             mon = null;
             select = null;
         } else if (e.getSource() == productoButton) {
-            
+            block = 0;
+            dep.setBlock(0);
+            dep.setMostrarImagen(false);
         }
     }
 

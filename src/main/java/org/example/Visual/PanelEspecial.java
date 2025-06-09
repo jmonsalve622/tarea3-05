@@ -16,6 +16,7 @@ public class PanelEspecial extends JPanel{
     private boolean mostrar5 = false;
 
     private int num;
+    private int block = 0;
 
     public PanelEspecial() {
 
@@ -56,25 +57,30 @@ public class PanelEspecial extends JPanel{
 
 
     public void setMostrarImagen(boolean mostrar) {
-        if(num == 1){
-            mostrar1 = mostrar;
-            repaint();
-        } else if(num == 2){
-            mostrar2 = mostrar;
-            repaint();
-        } else if(num == 3){
-            mostrar3 = mostrar;
-            repaint();
-        } else if(num == 4){
-            mostrar4 = mostrar;
-            repaint();
-        } else if(num == 5){
-            mostrar5 = mostrar;
-            repaint();
+        if (block != 1) {
+            if(num == 1){
+                mostrar1 = mostrar;
+                repaint();
+            } else if(num == 2){
+                mostrar2 = mostrar;
+                repaint();
+            } else if(num == 3){
+                mostrar3 = mostrar;
+                repaint();
+            } else if(num == 4){
+                mostrar4 = mostrar;
+                repaint();
+            } else if(num == 5){
+                mostrar5 = mostrar;
+                repaint();
+            }
         }
     }
 
     public void setNum(int n){
         num = n;
+    }
+    public void setBlock(int n){
+        block = n;
     }
 }

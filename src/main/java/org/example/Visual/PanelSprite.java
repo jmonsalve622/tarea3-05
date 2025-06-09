@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class PanelDeposito extends JPanel {
+public class PanelSprite extends JPanel {
     private Image imagen1;
     private boolean mostrar1 = true;
     private Image imagen2;
@@ -21,7 +21,7 @@ public class PanelDeposito extends JPanel {
     private boolean mostrar6 = true;
     private int num;
 
-    public PanelDeposito() {
+    public PanelSprite() {
 
         ImageIcon iconoOriginal = new ImageIcon("sprite.png");
         imagen1 = iconoOriginal.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
