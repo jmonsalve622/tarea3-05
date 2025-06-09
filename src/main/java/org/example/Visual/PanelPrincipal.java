@@ -147,20 +147,33 @@ public class PanelPrincipal extends JPanel implements ActionListener {
             fanta.RellenarFanta();
             fanta.RecolocarImagen(true);
         } else if (e.getSource() == comprarButton) {
-            if(select == Seleccion.SPRITESELECCION && mon instanceof Moneda1000){
+            if (select == Seleccion.SPRITESELECCION && mon instanceof Moneda1000){
                 sprite.ComprarSprite();
                 sprite.setMostrarImagen(false);
-            }
-            if(select == Seleccion.COCASELECCION && mon instanceof Moneda1000){
+            } else if (select == Seleccion.COCASELECCION && mon instanceof Moneda1000){
                 cocacola.ComprarCoca();
                 cocacola.setMostrarImagen(false);
-            }
-            if(select == Seleccion.FANTASELECCION && mon instanceof Moneda1000){
+            } else if (select == Seleccion.FANTASELECCION && mon instanceof Moneda1000){
                 fanta.ComprarFanta();
                 fanta.setMostrarImagen(false);
             }
             com = new Comprador(mon, select, exp);
-            System.out.println(com.queCompraste() + " " + com.cuantoVuelto());
+            System.out.println("Nombre Producto: " + com.queCompraste());
+            System.out.println("Vuelto: $" + com.cuantoVuelto());
+            if (mon != null) {
+                System.out.println("Serie Moneda: " + mon.getSerie());
+            } else {
+                System.out.println("No se ocupo una moneda");
+            }
+            if (com.getProductoComprado() != null) {
+                System.out.println("Serie Producto: " + com.getProductoComprado().getSerie());
+            } else {
+                System.out.println("No se obtuvo producto");
+            }
+            proGroup.clearSelection();
+            monGroup.clearSelection();
+            mon = null;
+            select = null;
         } else if (e.getSource() == cancelarButton) {
             proGroup.clearSelection();
             monGroup.clearSelection();
