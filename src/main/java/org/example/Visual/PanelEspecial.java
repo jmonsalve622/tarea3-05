@@ -111,4 +111,20 @@ public class PanelEspecial extends JPanel{
         snickersN = 0;
         super8N = 0;
     }
+
+    public int getCocaN() {
+        return cocaN;
+    }
+    public int getSpriN() {
+        return spriN;
+    }
+    public int getFantaN() {
+        return fantaN;
+    }
+    public int getSnickersN() {
+        return snickersN;
+    }
+    public int getSuper8N() {
+        return super8N;
+    }
 }

@@ -57,6 +57,11 @@ public class PanelPrincipal extends JPanel implements ActionListener {
     private int block = 0;
     private int blockm = 0;
     private int blockp = 0;
+    private int spriN = 0;
+    private int cocaN = 0;
+    private int fantaN = 0;
+    private int snickersN = 0;
+    private int super8N = 0;
 
 
     /*
@@ -215,7 +220,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                 }
             }
             if (select == Seleccion.SPRITESELECCION && mon instanceof Moneda1000){
-                if(block == 0){
+                if(block == 0 && spriN < 12){
                     dep.setNum(2);
                     sprite.ComprarSprite();
                     sprite.setMostrarImagen(false);
@@ -224,6 +229,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     dmon.setNum(200);
                     dmon.setMostrarImagen(true);
                     dmon.setBlock(1);
+                    spriN = dep.getSpriN();
                     blockm = 1;
                     blockp = 1;
                     block = 1;
@@ -232,7 +238,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     System.out.println("");
                 }
             } else if (select == Seleccion.COCASELECCION && mon instanceof Moneda1000){
-                if(block == 0){
+                if(block == 0 && cocaN < 12){
                     dep.setNum(1);
                     cocacola.ComprarCoca();
                     cocacola.setMostrarImagen(false);
@@ -241,6 +247,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     dmon.setNum(0);
                     dmon.setMostrarImagen(true);
                     dmon.setBlock(1);
+                    cocaN = dep.getCocaN();
                     blockm = 1;
                     blockp = 1;
                     block = 1;
@@ -249,7 +256,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     System.out.println("");
                 }
             } else if (select == Seleccion.FANTASELECCION && mon instanceof Moneda1000){
-                if(block == 0){
+                if(block == 0 && fantaN < 12){
                     dep.setNum(3);
                     fanta.ComprarFanta();
                     fanta.setMostrarImagen(false);
@@ -258,6 +265,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     dmon.setNum(100);
                     dmon.setMostrarImagen(true);
                     dmon.setBlock(1);
+                    fantaN = dep.getFantaN();
                     blockm = 1;
                     blockp = 1;
                     block = 1;
@@ -266,7 +274,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     System.out.println("");
                 }
             } else if (select == Seleccion.SNICKERSSELECCION && mon instanceof Moneda1000){
-                if(block == 0){
+                if(block == 0 && snickersN < 12){
                     dep.setNum(4);
                     snickers.ComprarSnickers();
                     snickers.setMostrarImagen(false);
@@ -275,6 +283,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     dmon.setNum(500);
                     dmon.setMostrarImagen(true);
                     dmon.setBlock(1);
+                    snickersN = dep.getSnickersN();
                     blockm = 1;
                     blockp = 1;
                     block = 1;
@@ -283,7 +292,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     System.out.println("");
                 }
             } else if (select == Seleccion.SUPER8SELECCION && mon instanceof Moneda1000){
-                if(block == 0){
+                if(block == 0 && super8N < 12){
                     dep.setNum(5);
                     super8.ComprarSuper8();
                     super8.setMostrarImagen(false);
@@ -292,6 +301,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     dmon.setNum(600);
                     dmon.setMostrarImagen(true);
                     dmon.setBlock(1);
+                    super8N = dep.getSuper8N();
                     blockm = 1;
                     blockp = 1;
                     block = 1;
@@ -300,7 +310,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     System.out.println("");
                 }
             } else if(select == Seleccion.SNICKERSSELECCION && mon instanceof Moneda500) {
-                if(block == 0) {
+                if(block == 0 && snickersN < 12) {
                     dep.setNum(4);
                     snickers.ComprarSnickers();
                     snickers.setMostrarImagen(false);
@@ -309,6 +319,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     dmon.setNum(5002);
                     dmon.setMostrarImagen(true);
                     dmon.setBlock(1);
+                    snickersN = dep.getSnickersN();
                     blockm = 1;
                     blockp = 1;
                     block = 1;
@@ -317,7 +328,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     System.out.println("");
                 }
             } else if(select == Seleccion.SUPER8SELECCION && mon instanceof Moneda500) {
-                if(block == 0) {
+                if(block == 0 && super8N < 12) {
                     dep.setNum(5);
                     super8.ComprarSuper8();
                     super8.setMostrarImagen(false);
@@ -326,6 +337,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     dmon.setNum(6002);
                     dmon.setMostrarImagen(true);
                     dmon.setBlock(1);
+                    super8N = dep.getSuper8N();
                     blockm = 1;
                     blockp = 1;
                     block = 1;
