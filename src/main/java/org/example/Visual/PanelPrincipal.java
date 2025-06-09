@@ -207,6 +207,8 @@ public class PanelPrincipal extends JPanel implements ActionListener {
             monGroup.clearSelection();
             mon = null;
             select = null;
+        } else if (e.getSource() == productoButton) {
+            
         }
     }
 

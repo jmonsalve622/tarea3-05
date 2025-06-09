@@ -10,19 +10,11 @@ public class PanelComprador extends JPanel {
     private List<Moneda100> m100Stack = new Stack<>();
     private List<Moneda500> m500Stack = new Stack<>();
     private List<Moneda1000> m1000Stack = new Stack<>();
-    private List<CocaCola> cocaStack = new Stack<>();
-    private List<Sprite> spriteStack = new Stack<>();
-    private List<Fanta> fantaStack = new Stack<>();
-    private List<Snickers> snickersStack = new Stack<>();
-    private List<Super8> super8Stack = new Stack<>();
+    private List<Producto> productStack = new Stack<>();
     private JPanel m100Panel;
     private JPanel m500Panel;
     private JPanel m1000Panel;
-    private JPanel cocaPanel;
-    private JPanel spritePanel;
-    private JPanel fantaPanel;
-    private JPanel snickersPanel;
-    private JPanel super8Panel;
+    private JPanel productPanel;
 
     public PanelComprador() {
         m1000Stack.add(new Moneda1000());
@@ -40,29 +32,17 @@ public class PanelComprador extends JPanel {
         m100Panel = new JPanel();
         m500Panel = new JPanel();
         m1000Panel = new JPanel();
-        cocaPanel = new JPanel();
-        spritePanel = new JPanel();
-        fantaPanel = new JPanel();
-        snickersPanel = new JPanel();
-        super8Panel = new JPanel();
+        productPanel = new JPanel();
 
-        m100Panel.setBounds(20, 20, 100, 100);
-        m500Panel.setBounds(170, 20, 100 ,100);
-        m1000Panel.setBounds(20, 170, 100 ,100);
-        cocaPanel.setBounds(170, 170, 100, 100);
-        spritePanel.setBounds(20, 320, 100 ,100);
-        fantaPanel.setBounds(170, 320, 100 ,100);
-        snickersPanel.setBounds(20, 470, 100, 100);
-        super8Panel.setBounds(170, 470, 100, 100);
+        m100Panel.setBounds(20, 20, 260, 50);
+        m500Panel.setBounds(20, 80, 260 ,50);
+        m1000Panel.setBounds(20, 140, 260 ,50);
+        productPanel.setBounds(20, 200, 260, 370);
 
         this.add(m100Panel);
         this.add(m500Panel);
         this.add(m1000Panel);
-        this.add(cocaPanel);
-        this.add(spritePanel);
-        this.add(fantaPanel);
-        this.add(snickersPanel);
-        this.add(super8Panel);
+        this.add(productPanel);
     }
 
     public List<Moneda100> getM100Stack() {
@@ -77,24 +57,8 @@ public class PanelComprador extends JPanel {
         return m1000Stack;
     }
 
-    public List<CocaCola> getCocaStack() {
-        return cocaStack;
-    }
-
-    public List<Sprite> getSpriteStack() {
-        return spriteStack;
-    }
-
-    public List<Fanta> getFantaStack() {
-        return fantaStack;
-    }
-
-    public List<Snickers> getSnickersStack() {
-        return snickersStack;
-    }
-
-    public List<Super8> getSuper8Stack() {
-        return super8Stack;
+    public List<Producto> getProductStack() {
+        return productStack;
     }
 
     @Override
